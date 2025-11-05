@@ -15,7 +15,7 @@ export default function MenuProvider ({ children }: PropsWithChildren<AdminMenuC
         setCategoryState(newCategory);
     };
 
-    return <MenuContext value={{ activeCategory: newCategory, setCategory }}>
+    return <MenuContext.Provider value={{ activeCategory: newCategory, setCategory }}>
         {children}
-    </MenuContext>;
+    </MenuContext.Provider>;
 }

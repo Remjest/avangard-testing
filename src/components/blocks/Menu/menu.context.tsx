@@ -22,7 +22,7 @@ export default function MenuProvider ({ children }: PropsWithChildren<IMenuConte
         setSubcategoryState(newSubcategory);
     };
 
-    return <MenuContext value={{ activeCategory: newCategory, activeSubcategory: newSubcategory, setCategory, setSubcategory }}>
+    return <MenuContext.Provider value={{ activeCategory: newCategory, activeSubcategory: newSubcategory, setCategory, setSubcategory }}>
         {children}
-    </MenuContext>;
+    </MenuContext.Provider>;
 }
