@@ -1,0 +1,12 @@
+.wrapper{
+    /* max-width: 1400px; */
+    width: 100%;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.video{
+    width: 100%;
+    height: auto;
+    display: block;
+}

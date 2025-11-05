@@ -1,0 +1,119 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 15px 0 40px;
+}
+
+.h1{
+    margin-left: 30px;
+}
+
+.mainWrapper{
+    display: grid;
+    grid-template-columns: 30px 1fr minmax(20px, 50px) 1fr 30px;
+    row-gap: 30px;
+    grid-template-areas: 
+    ". image . mainTitle mainTitle" 
+    ". image . mainText ." 
+    "subTitle subTitle . mainText ." 
+    ". subText . mainText .";
+}
+
+.image{
+    grid-area: image;
+}
+
+.mainTitle{
+    grid-area: mainTitle;
+}
+
+.mainText{
+    grid-area: mainText;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.subTitle{
+    grid-area: subTitle;
+}
+
+.subText{
+    grid-area: subText;
+}
+
+.important{
+    margin: 0 30px;
+}
+
+.withLine {
+    position: relative;
+    margin: 0 30px;
+    padding-left: 20px;
+    
+
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.withLine::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 7px;
+    background-color: var(--primary);
+    border-radius: 4px;
+}
+
+@media (max-width: 1200px) {
+    .mainTitle, .subTitle{
+        font-size: 19px !important;
+        font-weight: 600 !important;
+        line-height: 22px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainWrapper{
+        grid-template-columns: 30px 1fr 30px;
+        row-gap: 20px;
+        grid-template-areas: 
+        ". image ." 
+        ". mainTitle mainTitle"
+        ". mainText ." 
+        "subTitle subTitle ." 
+        ". subText .";
+    }
+    .subText{
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 425px) {
+    .wrapper{
+        gap: 30px;
+    }
+    .mainWrapper{
+        grid-template-columns: 10px 1fr 10px;
+    }
+    .mainText, .subText{
+        font-size: 12px;
+        margin: 0 auto;
+    }
+    .h1{
+        margin-left: 5px;
+        font-size: 22px !important;
+        font-weight: 800 !important;
+        line-height: 25px !important;
+    }
+    .withLine, .important{
+        margin: 0 10px;
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .sectionWrapper{
+        padding: 0 5px;
+    }
+}

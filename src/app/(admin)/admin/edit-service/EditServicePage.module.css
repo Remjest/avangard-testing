@@ -1,0 +1,287 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 15px 0 40px;
+}
+
+.h1{
+    margin-left: 30px;
+}
+
+.mainWrapper{
+    display: grid;
+    grid-template-columns: 30px 1fr minmax(20px, 50px) 1fr 30px;
+    row-gap: 30px;
+    grid-template-areas: 
+    ". image . mainTitle mainTitle" 
+    ". image . mainText ." 
+    "subTitle subTitle . mainText ." 
+    ". subText . mainText .";
+}
+
+.image{
+    grid-area: image;
+    aspect-ratio: 5 / 3;
+}
+
+.mainTitle{
+    grid-area: mainTitle;
+}
+
+.mainText{
+    grid-area: mainText;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.subTitle{
+    grid-area: subTitle;
+}
+
+.subText{
+    grid-area: subText;
+}
+
+.important{
+    margin: 0 30px;
+}
+
+.withLine {
+    position: relative;
+    margin: 0 30px;
+    padding-left: 20px;
+    
+
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.withLine::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 7px;
+    background-color: var(--primary);
+    border-radius: 4px;
+}
+
+.actionWrapper{
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.label{
+    display: block;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 15px 38px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 23px;
+    border-radius: 26px;
+}
+
+.tip{
+    position: relative;
+    margin: 0 10px;
+    padding-left: 20px;
+
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.tip::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 7px;
+    background-color: var(--primary);
+    border-radius: 4px;
+}
+
+.tipRed{
+    color: var(--red);
+}
+
+.tipGreen{
+    color: var(--green);
+}
+
+.radioGroup{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    gap: 10px;
+}
+
+.radioLabel{
+    display: flex;
+    gap: 20px;
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+}
+
+.input{
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    
+    border-radius: 3px;
+    box-shadow: 1px 4px 9px 0px rgba(0, 0, 0, 0.25);
+    padding: 13px 7px;
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+}
+
+.textarea{
+    display: block;
+    width: 100%;
+    height: 150px;
+    min-height: 150px;
+    max-height: 400px;
+    resize: vertical;
+    overflow: auto;
+    
+    border-radius: 3px;
+    box-shadow: 1px 4px 9px 0px rgba(0, 0, 0, 0.25);
+    padding: 13px 7px;
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    scrollbar-width: 20px;
+    
+}
+
+.textarea::-webkit-resizer {
+    background-color: var(--primary);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+.hiddenInput{
+    display: none;
+}
+
+.uploadLabel{
+    max-width: 500px;
+    background-color: var(--white);
+    box-shadow: 1px 4px 9px 0px rgba(0, 0, 0, 0.25);
+    color: var(--black);
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+
+.preview{
+    width: 500px !important;
+    height: 300px !important;
+}
+
+.err{
+    color: var(--red);
+}
+
+.button{
+    align-self: center;
+    max-width: 500px;
+    background-color: var(--green);
+    padding: 20px 30px; 
+    border-radius: 18px;
+
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 22px;
+    transition: all 0.1s linear;
+}
+
+.button:active{
+    background-color: var(--primary-hover);
+    transform: scale(0.9);
+}
+
+@media (max-width: 1200px) {
+    .mainTitle, .subTitle{
+        font-size: 19px !important;
+        font-weight: 600 !important;
+        line-height: 22px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainWrapper{
+        grid-template-columns: 30px 1fr 30px;
+        row-gap: 20px;
+        grid-template-areas: 
+        ". image ." 
+        ". mainTitle mainTitle"
+        ". mainText ." 
+        "subTitle subTitle ." 
+        ". subText .";
+    }
+    .subText{
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 425px) {
+    .wrapper{
+        gap: 30px;
+    }
+    .mainWrapper{
+        grid-template-columns: 10px 1fr 10px;
+    }
+    .mainText, .subText{
+        font-size: 12px;
+        margin: 0 auto;
+    }
+    .h1{
+        margin-left: 5px;
+        font-size: 22px !important;
+        font-weight: 800 !important;
+        line-height: 25px !important;
+    }
+    .withLine, .important{
+        margin: 0 10px;
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .sectionWrapper{
+        padding: 0 5px;
+    }
+
+    .tip{
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+}
+
+@media (min-width: 1025px) {
+    .button:hover{
+        background-color: var(--primary-hover);
+        transform: scale(1.02);
+    }
+    .button:active{
+        background-color: var(--primary-hover);
+        transform: scale(0.9);
+    }
+}

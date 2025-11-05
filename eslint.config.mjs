@@ -4,7 +4,26 @@ import nextTs from "eslint-config-next/typescript";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
-  ...nextTs,
+    ...nextTs,
+    {plugins: {
+            "@typescript-eslint": typescriptEslint,
+        },
+        rules: {
+            "react/display-name": "off",
+            "semi": "off",
+            "no-unused-vars": "off",
+            "@typescript-eslint/no-explicit-any": "warn",
+            "@typescript-eslint/no-unused-vars": "warn",
+            "@typescript-eslint/semi": ["warn"],
+            "@typescript-eslint/no-empty-interface": [
+                'error',
+                {"allowSingleExtends": true }
+            ],
+            "react/react-in-jsx-scope": "off",
+            "react-hooks/rules-of-hooks": "error",
+            "react-hooks/exhaustive-deps": "warn"
+                }
+    },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
