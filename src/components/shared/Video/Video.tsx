@@ -17,7 +17,7 @@ export default function Video({ videoUrl, className, ...props }: VideoProps) {
                 className={styles.video}
                 src={url}
                 loop
-                poster='./videoPreview.png'
+                poster='./videoPreview.jpg'
                 preload="metadata"
                 controls
             />
