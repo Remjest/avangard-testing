@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
 
     return (
         <div className={styles.wrapper}>
-            <Logo/>
+            <Logo className={styles.logo}/>
             <div className={styles.formContainer}>
                     <form
                         className={styles.form}

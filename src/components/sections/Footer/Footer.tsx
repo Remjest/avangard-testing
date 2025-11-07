@@ -18,7 +18,7 @@ export default function Footer({className,...props}: FooterProps) {
         <footer className={classNames(styles.footer, className)} {...props}>
             <div className={styles.wrapper}>
                 <div className={styles.logo}>
-                    <Logo/>
+                    <Logo className={styles.logoImg}/>
                     <span>ООО «АВАНГАРД»</span>
                 </div>
                 <div className={styles.border}></div>
