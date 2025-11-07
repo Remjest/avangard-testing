@@ -1,4 +1,4 @@
-import styles from './Admin.module.css'
+import styles from './Admin.module.css';
 import HTag from "@/src/components/shared/HTag/HTag";
 import { getAllData } from "@/src/api/allData";
 import React from "react";
@@ -46,10 +46,10 @@ export default async function AdminPage() {
                                         </div>
                                     }
                                 </React.Fragment>
-                            )
+                            );
                         })}
                     </div>
-                </div>)
+                </div>);
             })}
         </>
     );

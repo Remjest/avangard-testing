@@ -1,4 +1,3 @@
-import { DetailedHTMLProps, ImgHTMLAttributes } from "react";
 import Image, { StaticImageData } from "next/image";
 import styles from './ImgTag.module.css';
 import classNames from "classnames";

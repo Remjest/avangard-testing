@@ -3,7 +3,6 @@ import styles from './Hero.module.css';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import Logo from './logo.svg';
 import Arrow from './arrow.svg';
-import ImgTag from '../../shared/ImgTag/ImgTag';
 
 
 export interface HeroProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

@@ -1,55 +1,62 @@
 
-.mapWrapper{
-    position: relative;
-    width: 100%;
-    height: 60vh;
-    min-height: 420px;
+.mapWrapper {
+	position: relative;
+
+	width: 100%;
+	height: 60vh;
+	min-height: 420px;
 }
 
-.contacts{
-    position: absolute;
-    bottom: 50px;
-    left: 55px;
+.contacts {
+	position: absolute;
+	bottom: 50px;
+	left: 55px;
 }
 
-.list{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    list-style-type: none;
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+
+	list-style-type: none;
 }
 
-.list li{
-    position: relative;
-    padding-left: 10px;
+.list li {
+	position: relative;
+
+	padding-left: 10px;
 }
 
-.list li::before{
-    position: absolute;
-    top: calc(50% - 1px);
-    left: 0;
-    content: '';
-    width: 2px;
-    height: 2px;
-    background-color: var(--black);
+.list li::before {
+	position: absolute;
+	top: calc(50% - 1px);
+	left: 0;
+
+	width: 2px;
+	height: 2px;
+
+	content: '';
+
+	background-color: var(--black);
 }
 
 @media (max-width: 768px) {
-    .contacts{
-        bottom: 0;
-        left: 0;
-        padding: 10px !important;
-        border-radius: 5px !important;
-        gap: 10px !important;
-        width: 100%;
-    }
+	.contacts {
+		bottom: 0;
+		left: 0;
 
-    .list{
-        gap: 2px;
-    }
+		width: 100%;
+		padding: 10px !important;
 
-    .list li{
-        font-size: 12px;
+		border-radius: 5px !important;
+		gap: 10px !important;
+	}
 
-    }
+	.list {
+		gap: 2px;
+	}
+
+	.list li {
+		font-size: 12px;
+	}
 }

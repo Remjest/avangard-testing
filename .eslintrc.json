@@ -1,0 +1,42 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "next/core-web-vitals"
+  ],
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "react/display-name": "off",
+    "semi": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/triple-slash-reference": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/semi": ["warn"],
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      { "allowSingleExtends": true }
+    ],
+    "react/react-in-jsx-scope": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

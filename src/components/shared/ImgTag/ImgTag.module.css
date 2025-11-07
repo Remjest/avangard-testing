@@ -1,11 +1,10 @@
 .image {
 	display: block;
+	overflow: hidden;
 
 	width: 100%;
 	height: auto;
+
+	border-radius: 30px 7px 7px 7px;
 	object-fit: cover;
-    overflow: hidden;
-
-    border-radius: 30px 7px 7px 7px;
 }
-

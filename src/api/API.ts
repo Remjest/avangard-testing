@@ -20,6 +20,6 @@ const API = {
     images: {
         postImage: process.env.NEXT_PUBLIC_DOMAIN + '/api/upload/image'
     }
-}
+};
 
-export default API
+export default API;

@@ -5,7 +5,7 @@ import { parseToHTML } from "@/src/helpers";
 import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
 import Important from "@/src/components/shared/Important/Important";
 import Price from "@/src/components/shared/Price/Price";
-import Preview from './preview.jpg'
+import Preview from './preview.jpg';
 import { Metadata } from "next";
 
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
                 }
             ],
         },
-}
+};
 
 export default function AccidentPage(): JSX.Element {
 
@@ -41,7 +41,7 @@ export default function AccidentPage(): JSX.Element {
         metaTitle: 'ООО "АВАНГАРД" | Санитарно-эпидемиологическая экспертиза в Томске',
         metaDescription: 'Наша организация осуществляет проведение экспертиз по оценке соответствия объекта исследований требованиям санитарного законодательства.',
         metaKeywords: 'санитарно-эпидемиологическая экспертиза, экспертиза в Томске, санитарная экспертиза, эпидемиологическая экспертиза, санитарные нормы, гигиенические нормативы, экспертиза зданий, экспертиза жилых домов, экспертиза общественного питания, экспертиза школ и детсадов, экспертиза ЛПУ, экспертиза производственных объектов, экспертиза водоснабжения, экспертиза отходов, санитарная оценка, соответствие санитарным правилам, санитарный контроль, Томск, санитарная безопасность, экспертиза продукции, технические регламенты',
-    }
+    };
 
 
     return (
@@ -68,5 +68,5 @@ export default function AccidentPage(): JSX.Element {
             
             <Price price={pageData.price} size="bigger"/>
         </div>
-    )
+    );
 }

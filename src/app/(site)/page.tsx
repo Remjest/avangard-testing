@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { JSX, useEffect, useState } from "react";
 import Hero from "../../components/blocks/Hero/Hero";
@@ -16,10 +16,9 @@ import Book from './img/book.svg';
 import Home from './img/home.jpg';
 import ImgTag from "../../components/shared/ImgTag/ImgTag";
 import Price from "../../components/shared/Price/Price";
-import { getMenu } from "../../api/menu";
 import { parseToHTML } from "../../helpers";
 import Important from "../../components/shared/Important/Important";
-import { Service } from "@/src/interfaces";
+import { Service, Subcategory } from "@/src/interfaces";
 import API from "@/src/api/API";
 
 
@@ -60,13 +59,13 @@ export default function HomePage(): JSX.Element{
                 let categorySlug: "services" | "expertise" | null = null;
 
                 const inCat1 =
-                    cat1?.subcategories && cat1.subcategories.some((subcategory: any) =>
+                    cat1?.subcategories && cat1.subcategories.some((subcategory: Subcategory) =>
                         subcategory.services && subcategory.services.some((s: Service) => s.serviceId === service.serviceId
                         )
                 );
 
             const inCat2 =
-                cat2?.subcategories && cat2.subcategories.some((subcategory: any) =>
+                cat2?.subcategories && cat2.subcategories.some((subcategory: Subcategory) =>
                     subcategory.services && subcategory.services.some((s: Service) => s.serviceId === service.serviceId
                     )
                 );
@@ -88,7 +87,7 @@ export default function HomePage(): JSX.Element{
 
     const serverText = '/bold/МЫ НЕ ТЯНЕМ ВРЕМЯ — ВЫ НЕ ТЕРЯЕТЕ ДЕНЬГИ!//bold// /n/ /italic/Все отчёты мы подготавливаем в минимальные сроки//italic//';
 
-    const bigText = "/bold/Независимая оценка стоимости недвижимости//bold// (квартиры, дома, земельного участка или участка под строительство) необходима, в случае, если клиенты желают её приобрести, продать или застраховать, при использовании в качестве арендной жилой или нежилой недвижимости, при совершении сделок купли-продажи недвижимых активов и объектв основных средств. Оценка коммерческой или жилой недвижимости /bold/в Томске и Томской области//bold// да и в любом городе часто требуется в случае, если появляется потребность в привлечении акционеров, а также в случае разделения долей собственно."
+    const bigText = "/bold/Независимая оценка стоимости недвижимости//bold// (квартиры, дома, земельного участка или участка под строительство) необходима, в случае, если клиенты желают её приобрести, продать или застраховать, при использовании в качестве арендной жилой или нежилой недвижимости, при совершении сделок купли-продажи недвижимых активов и объектв основных средств. Оценка коммерческой или жилой недвижимости /bold/в Томске и Томской области//bold// да и в любом городе часто требуется в случае, если появляется потребность в привлечении акционеров, а также в случае разделения долей собственно.";
 
     return (
         <>
@@ -102,7 +101,7 @@ export default function HomePage(): JSX.Element{
                         <Info>{parseToHTML("Наша компания имеет /bold/солидный опыт//bold// оценки различных объектов недвижимого имущества в Томске. Мы оказываем /bold/квалифицированные профессиональные услуги//bold// по независимой оценке зданий, помещений, квартир, долей в квартирах и земельных участков в Томске.")}</Info>
                         <Info>{parseToHTML("Уже /bold/более пяти лет//bold// помогаем клиентам отстоять их интересы и получить достойную компенсацию")}</Info>
                     </div>
-                    <Video />
+                    <Video videoUrl="main-video.mp4"/>
                 </div>
                 {popular && popular.length !== 0 && 
                     <>

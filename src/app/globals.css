@@ -1,73 +1,73 @@
 
 html,
 body {
-    --background: #EBEBEB;
+	--background: #EBEBEB;
 	--foreground: #171717;
 	--white: rgb(255, 255, 255);
-	--black: #000000;
+	--black: #000;
 	--active: #0038A0;
 	--primary: #2F4877;
-	--primary-hover: #445d8d;
-    --red: #EF3536;
-    --green: rgb(40, 184, 59);
-    
-    background-color: var(--background);
-    
-    
-    * {
-        font-family: var(--main-font);
-        box-sizing: border-box !important;
+	--primary-hover: #445D8D;
+	--red: #EF3536;
+	--green: rgb(40, 184, 59);
 
-        margin: 0;
-        padding: 0;
-        
-        border: 0;
-    }
-    
-    *,
-    *::before,
-    *::after {
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    a {
-        color: inherit
-    }
-    
-    a,
-    a:visited { text-decoration: none; }
-    a:hover { text-decoration: none; }
-    
-    a:focus,
-    a:active { outline: none; }
-    
-    nav,
-    footer,
-    header,
-    aside { display: block; }
-    
-    input::-ms-clear { display: none; }
-    button { cursor: pointer; }
-    
-    img { vertical-align: top; }
-    
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-size: inherit;
-        font-weight: 400;
-    }
+	background-color: var(--background);
+
+	* {
+		box-sizing: border-box !important;
+
+		margin: 0;
+		padding: 0;
+
+		border: 0;
+
+		font-family: var(--main-font);
+	}
+
+	*,
+	*::before,
+	*::after {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	a {
+		color: inherit;
+	}
+
+	a,
+	a:visited { text-decoration: none; }
+	a:hover { text-decoration: none; }
+
+	a:focus,
+	a:active { outline: none; }
+
+	nav,
+	footer,
+	header,
+	aside { display: block; }
+
+	input::-ms-clear { display: none; }
+	button { cursor: pointer; }
+
+	img { vertical-align: top; }
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-size: inherit;
+		font-weight: 400;
+	}
 }
 
-.bold{
-    font-weight: 600;
+.bold {
+	font-weight: 600;
 }
 
-.italic{
-    font-style: italic;
+.italic {
+	font-style: italic;
 }
-

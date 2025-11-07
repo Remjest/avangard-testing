@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import styles from './EditServicePage.module.css'
+import styles from './EditServicePage.module.css';
 import HTag from "@/src/components/shared/HTag/HTag";
 import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
 import Price from "@/src/components/shared/Price/Price";
@@ -26,6 +26,19 @@ export default function EditServicePage() {
     const [mainImg, setMainImg] = useState<string | null>(null);
     const [preview, setPreview] = useState<string | null>(null);
 
+    type FormValues = Service & {
+        mainImage: FileList | null;
+        previewImage: FileList | null;
+    };
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        reset,
+        formState: { errors },
+    } = useForm<FormValues>();
+
     useEffect(() => {
         if (!id) return;
 
@@ -40,20 +53,7 @@ export default function EditServicePage() {
         }
 
         loadData(id);
-    }, [id]);
-
-    type FormValues = Service & {
-        mainImage: FileList | null;
-        previewImage: FileList | null;
-    };
-
-    const {
-        register,
-        handleSubmit,
-        watch,
-        reset,
-        formState: { errors },
-    } = useForm<FormValues>();
+    }, [id, reset]);
     
     const onSubmit: SubmitHandler<FormValues> = async (newData, e) => {
         e?.preventDefault();
@@ -83,7 +83,7 @@ export default function EditServicePage() {
             const uploadMain = await postImage(mainImage[0]);
             if (uploadMain.success) newPicLinkMain = uploadMain.data;
             else {
-                console.error(uploadMain.error)
+                console.error(uploadMain.error);
                 window.alert("Ошибка загрузки основного изображения - будет использовано старое изображение.");
             }
         }

@@ -1,24 +1,26 @@
-.wrapper{
+.wrapper {
+	width: 390px;
 
-    width: 390px;
+	padding: 30px 30px;
 
-    padding: 30px 30px;
-
-    border-radius: 30px 7px 7px 7px;
-    background-color: var(--white);
+	border-radius: 30px 7px 7px 7px;
+	background-color: var(--white);
 }
 
-.title{
-    margin-bottom: 30px;
-    color: var(--black);
-    font-size: 26px;
-    font-weight: 800;
-    line-height: 26px;
+.title {
+	margin-bottom: 30px;
+
+	color: var(--black);
+
+	font-size: 26px;
+	font-weight: 800;
+	line-height: 26px;
 }
 
-.list{
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
+.list {
+	display: flex;
+	flex-direction: column;
+
+	list-style-type: none;
+	gap: 7px;
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './PostSubcategoryPage.module.css'
+import styles from './PostSubcategoryPage.module.css';
 import HTag from "@/src/components/shared/HTag/HTag";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { postSubcategory } from "@/src/api/postSubcategory";
@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 type newData = {
     name: string,
     categoryId: string,
-}
+};
 
 export default function PostSubcategoryPage() {
 

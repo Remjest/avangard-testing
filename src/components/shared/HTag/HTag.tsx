@@ -26,5 +26,5 @@ export default function HTag({ tag, direction, children, className, ...props} : 
                 [styles.right]: direction === 'fromRight',
             })} {...props}>{children}</h3>}
         </>
-    )
+    );
 }

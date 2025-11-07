@@ -1,8 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes} from "react";
 import styles from './ServicePreview.module.css';
 import classNames from "classnames";
 import ImgTag from "../ImgTag/ImgTag";
-import Button from "../Button/Button";
 import Link from "next/link";
 import { StaticImageData } from "next/image";
 

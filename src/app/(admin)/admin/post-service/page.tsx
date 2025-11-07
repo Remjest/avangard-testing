@@ -2,14 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from './PostServicePage.module.css'
+import styles from './PostServicePage.module.css';
 import HTag from "@/src/components/shared/HTag/HTag";
 import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
 import Price from "@/src/components/shared/Price/Price";
 import { parseToHTML } from "@/src/helpers";
 import Important from "@/src/components/shared/Important/Important";
 import { Service } from "@/src/interfaces";
-import { getPage } from "@/src/api/page";
 import { SubmitHandler, useForm } from "react-hook-form";
 import classNames from "classnames";
 import { getShortsByCategory } from "@/src/api/shortsByCategory";
@@ -32,7 +31,7 @@ export default function EditServicePage() {
                 return;
             }
             setSubcategories(res.data);
-        }
+        };
         loadSubcategories();
     }, []);
 
@@ -64,7 +63,7 @@ export default function EditServicePage() {
         for (const service of unpackedServices) {
             if (service.serviceId !== newData.serviceId) {
                 if (service.alias === newData.alias) {
-                    console.error("Вы ввели уже использующийся относительный путь! Попробуйте изменить его или удалить услугу с таким же путем.")
+                    console.error("Вы ввели уже использующийся относительный путь! Попробуйте изменить его или удалить услугу с таким же путем.");
                     window.alert("Вы ввели уже использующийся относительный путь! Попробуйте изменить его или удалить услугу с таким же путем.");
                     return;
                 }
@@ -78,14 +77,14 @@ export default function EditServicePage() {
             const uploadMain = await postImage(mainImage[0]);
             if (uploadMain.success) newPicLinkMain = uploadMain.data;
             else {
-                console.error(uploadMain.error)
+                console.error(uploadMain.error);
                 window.alert("Ошибка загрузки основного изображения!");
                 return;
             }
         } else return;
 
         if (previewImage && previewImage[0]) {
-            let uploadPreview = await postImage(previewImage[0]);
+            const uploadPreview = await postImage(previewImage[0]);
             if (uploadPreview.success) newPicLinkPreview = uploadPreview.data;
             else {
                 window.alert("Ошибка загрузки превью - будет использовано основное изображение.");
@@ -153,7 +152,7 @@ export default function EditServicePage() {
                                 />
                                 {subcategory.name}
                             </label>
-                        )
+                        );
                     })}
                 </div>
                 {errors.subcategoryId && <div className={styles.err}> {errors.subcategoryId.message} </div>}

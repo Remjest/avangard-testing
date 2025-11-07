@@ -5,7 +5,7 @@ import ServicePreview from "@/src/components/shared/ServicePreview/ServicePrevie
 import { NestedCategories } from "@/src/interfaces";
 import { notFound } from "next/navigation";
 import { JSX } from "react";
-import styles from "./CategoryPage.module.css"
+import styles from "./CategoryPage.module.css";
 
 export const revalidate = 300;
 
@@ -37,9 +37,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
             <HTag className={styles.h1} tag="h1" direction="fromRight">{title}</HTag>
             <div className={styles.servicesWrapper}>
                 {services && services?.length !== 0 && services.map((service) => {
-                    return <ServicePreview className={styles.service} key={service.serviceId} title={service.title} img={`${process.env.NEXT_PUBLIC_DOMAIN}${service.picLinkPreview}`} src={`/${category}/${service.alias}`}></ServicePreview>
+                    return <ServicePreview className={styles.service} key={service.serviceId} title={service.title} img={`${process.env.NEXT_PUBLIC_DOMAIN}${service.picLinkPreview}`} src={`/${category}/${service.alias}`}></ServicePreview>;
                 })}
             </div>
         </div>
-    )
+    );
 }

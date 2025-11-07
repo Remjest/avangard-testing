@@ -28,9 +28,9 @@ export default function AdminLoginPage() {
             });
 
             if (!res.ok) {
-                if (res.status === 401) throw new Error("Неверный логин или пароль")
-                else throw new Error("Ошибка отправки данных: проверьте подключение к Интернету и работоспособность сервера.")
-            };
+                if (res.status === 401) throw new Error("Неверный логин или пароль");
+                else throw new Error("Ошибка отправки данных: проверьте подключение к Интернету и работоспособность сервера.");
+            }
 
             const authInfo = await res.json();
             setLoading(false);

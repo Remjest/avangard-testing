@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     if (!res.success) {
         console.error('Failed to load metadata:', res.error);
         return;
-    };
+    }
     const page = res.data;
 
     return {
@@ -121,5 +121,5 @@ export default async function ServicePage({ params }: { params: Promise<{ catego
             </div>}
             <Price price={pageData.price} size="bigger"/>
         </div>
-    )
+    );
 }

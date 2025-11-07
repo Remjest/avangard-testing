@@ -1,4 +1,3 @@
-import ImgTag from '../../shared/ImgTag/ImgTag';
 import styles from './Footer.module.css';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import Logo from './logo.svg';
@@ -12,7 +11,6 @@ import classNames from 'classnames';
 export interface FooterProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>{
     className?: string,
 }
-const navPoints = ['Log In', 'About Us', 'Publishers', 'Sitemap'];
 
 export default function Footer({className,...props}: FooterProps) {
     

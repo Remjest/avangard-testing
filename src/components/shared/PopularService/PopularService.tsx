@@ -1,7 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes} from "react";
 import styles from './PopularService.module.css';
 import classNames from "classnames";
-import ImgTag from "../ImgTag/ImgTag";
 import ServicePreview from "../ServicePreview/ServicePreview";
 import { StaticImageData } from "next/image";
 

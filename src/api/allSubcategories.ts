@@ -1,4 +1,4 @@
-import { Category, Subcategory } from "../interfaces";
+import { Subcategory } from "../interfaces";
 import API from "./API";
 import { Result } from "./types";
 
@@ -18,7 +18,7 @@ export async function getAllSubcategories(): Promise<Result<{id: string, name: s
         const dataArrays = await Promise.all(responses.map((r) => r.json()));
 
         const subcategories = dataArrays.flatMap((data: Subcategory[]) =>
-            data.map((subcategory) => {return ({id: subcategory.subcategoryId.toString(), name: subcategory.subcategoryName})})
+            data.map((subcategory) => {return ({id: subcategory.subcategoryId.toString(), name: subcategory.subcategoryName});})
         );
 
         return { success: true, data: subcategories };

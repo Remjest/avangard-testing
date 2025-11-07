@@ -46,5 +46,5 @@ export default function PaymentPage(): JSX.Element {
                 <p>{parseToHTML("БИК 046902606")}</p>
             </div>
         </div>
-    )
+    );
 }

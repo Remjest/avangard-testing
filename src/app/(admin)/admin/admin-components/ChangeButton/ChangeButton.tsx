@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ButtonHTMLAttributes, DetailedHTMLProps, JSX, ReactNode } from "react";
 import { deleteService } from "@/src/api/deleteService";
@@ -37,7 +37,7 @@ export default function ChangeButton({ action, targetId, newData, entityType, cl
                 else window.alert("При попытке удаления произошла ошибка.");
             }
         }
-    }
+    };
 
     const handleEditButton = async (targetId: string, entityType: "subcategory" | "service", newData: Service | Subcategory) => {
         if (entityType === "subcategory") {
@@ -50,12 +50,12 @@ export default function ChangeButton({ action, targetId, newData, entityType, cl
                 else window.alert("При попытке изменения произошла ошибка.");
             }
         }
-    }
+    };
 
     return (
         <button className={className} onClick={() => {
             if (action === 'delete') handleDeleteButton(targetId, entityType);
             if (action === 'edit' && newData) handleEditButton(targetId, entityType, newData);
         }} >{children}</button>
-    )
+    );
 }

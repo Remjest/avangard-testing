@@ -1,4 +1,4 @@
-import { Service, Subcategory } from "../interfaces";
+import { Service } from "../interfaces";
 import API from "./API";
 import { Result } from "./types";
 

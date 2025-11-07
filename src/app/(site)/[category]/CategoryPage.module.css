@@ -1,53 +1,55 @@
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    gap: 33px;
-    padding: 15px 0 40px;
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 33px;
+
+	padding: 15px 0 40px;
 }
 
-.h1{
-    margin-left: 40px;
+.h1 {
+	margin-left: 40px;
 }
 
-.servicesWrapper{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: auto;
-    gap: 34px;
-    margin: 0 40px;
+.servicesWrapper {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: auto;
+	gap: 34px;
+
+	margin: 0 40px;
 }
 
-.service{
-    width: 100%;
-    justify-self: center;
+.service {
+	width: 100%;
+	justify-self: center;
 }
 
 @media (max-width: 2500px) {
-    .servicesWrapper{
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
+	.servicesWrapper {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
 
 @media (max-width: 1800px) {
-    .servicesWrapper{
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
+	.servicesWrapper {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @media (max-width: 768px) {
-    .servicesWrapper{
-        grid-template-columns: 1fr;
-    }
+	.servicesWrapper {
+		grid-template-columns: 1fr;
+	}
 }
 
 @media (max-width: 425px) {
-    .h1{
-        margin-left: 15px;
-    }
-    .servicesWrapper{
-        gap: 19px;
-        margin: 0 30px;
-    }
+	.h1 {
+		margin-left: 15px;
+	}
+
+	.servicesWrapper {
+		gap: 19px;
+
+		margin: 0 30px;
+	}
 }

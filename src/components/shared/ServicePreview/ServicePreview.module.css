@@ -1,64 +1,76 @@
-.wrapper{
-    position: relative;
-    display: block;
-    transition: all 0.1s linear;
+.wrapper {
+	position: relative;
+
+	display: block;
+
+	transition: all 0.1s linear;
 }
 
-.image{
-    pointer-events: none;
+.image {
+	pointer-events: none;
 }
 
-.title{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    right: 19px;
-    bottom: 25px;
-    max-width: 85%;
-    background-color: var(--primary);
-    padding: 14.2px 27px; 
-    border-radius: 18px;
-    color: var(--white);
-    font-size: 13.79px;
-    font-weight: 500;
-    line-height: 15px;
+.title {
+	position: absolute;
+	right: 19px;
+	bottom: 25px;
 
-    cursor: pointer;
+	display: flex;
+	justify-content: center;
 
-    transition: all 0.1s linear;
+	max-width: 85%;
+	padding: 14.2px 27px;
+
+	cursor: pointer;
+
+	transition: all 0.1s linear;
+
+	color: var(--white);
+	border-radius: 18px;
+	background-color: var(--primary);
+
+	font-size: 13.79px;
+	font-weight: 500;
+	line-height: 15px;
 }
 
-.wrapper:active .title{
-        background-color: var(--primary-hover);
-        transform: scale(0.9);
-    }
+.wrapper:active .title {
+	transform: scale(0.9);
 
+	background-color: var(--primary-hover);
+}
 
 @media (min-width: 1025px) {
-    .wrapper:hover{
-        transform: scale(1.07);
-    }
-    .wrapper:hover .title{
-        background-color: var(--primary-hover);
-        transform: scale(1.02);
-    }
-    .wrapper:active .title{
-        background-color: var(--primary-hover);
-        transform: scale(0.9);
-    }
+	.wrapper:hover {
+		transform: scale(1.07);
+	}
+
+	.wrapper:hover .title {
+		transform: scale(1.02);
+
+		background-color: var(--primary-hover);
+	}
+
+	.wrapper:active .title {
+		transform: scale(0.9);
+
+		background-color: var(--primary-hover);
+	}
 }
 
 @media (max-width: 1024px) {
-    .title{
-        right: 10px;
-        bottom: 15px;
-        padding: 14.2px 27px; 
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 14px;
+	.title {
+		right: 10px;
+		bottom: 15px;
 
-        cursor: pointer;
+		padding: 14.2px 27px;
 
-        transition: all 0.1s linear;
-    }
+		cursor: pointer;
+
+		transition: all 0.1s linear;
+
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 14px;
+	}
 }

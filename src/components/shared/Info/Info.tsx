@@ -1,7 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode} from "react";
 import styles from './Info.module.css';
 import classNames from "classnames";
-import Image, { StaticImageData } from "next/image";
 
 export interface InfoProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
     title?: string,

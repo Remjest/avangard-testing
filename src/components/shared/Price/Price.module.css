@@ -1,56 +1,62 @@
-.wrapper{
-    display: grid;
-    width: 100%;
-    height: fit-content;
+.wrapper {
+	display: grid;
 
-    grid-template-areas: ". lineLeft . title . lineRight ."  ". price price price price price .";
-    grid-template-columns: 10% 1fr 20px auto 20px 1fr 10%;
-    grid-template-rows: auto auto;
-    
-    align-items: center;
+	align-items: center;
+
+	width: 100%;
+	height: fit-content;
+
+	grid-template-areas: ". lineLeft . title . lineRight ."  ". price price price price price .";
+	grid-template-columns: 10% 1fr 20px auto 20px 1fr 10%;
+	grid-template-rows: auto auto;
 }
 
-.bigger{
-    row-gap: 20px;
-    font-size: 30px;
-    line-height: 30px;
+.bigger {
+	row-gap: 20px;
+
+	font-size: 30px;
+	line-height: 30px;
 }
 
-.lower{
-    row-gap: 4px;
-    font-size: 18px;
-    line-height: 18px;
+.lower {
+	row-gap: 4px;
+
+	font-size: 18px;
+	line-height: 18px;
 }
 
 .lineLeft {
-    height: 1px;
-    background-color: var(--black);
-    grid-area: lineLeft;
+	height: 1px;
+
+	background-color: var(--black);
+	grid-area: lineLeft;
 }
 
 .lineRight {
-    height: 1px;
-    background-color: var(--black);
-    grid-area: lineRight;
+	height: 1px;
+
+	background-color: var(--black);
+	grid-area: lineRight;
 }
 
-.title{
-    grid-area: title;
+.title {
+	grid-area: title;
 }
 
-.price{
-    grid-area: price;
-    justify-self: center;
+.price {
+	grid-area: price;
+	justify-self: center;
 }
 
 @media (max-width: 425px) {
-    .wrapper{
-        grid-template-columns: 5% 1fr 10px auto 10px 1fr 5%;
-    }
+	.wrapper {
+		grid-template-columns: 5% 1fr 10px auto 10px 1fr 5%;
+	}
 
-    .bigger{
-        row-gap: 10px;
-        font-size: 20px;
-        line-height: 20px;
-    }
+	.bigger {
+		row-gap: 10px;
+
+		font-size: 20px;
+		line-height: 20px;
+	}
 }

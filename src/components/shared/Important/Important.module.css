@@ -1,44 +1,46 @@
 .important {
-    display: grid;
-    align-self: self-start;
-    grid-template-areas: "line title" "line text";
-    grid-template-columns: 7px 1fr;
-    gap: 24px 14px;
+	display: grid;
+	align-self: self-start;
+	grid-template-areas: "line title" "line text";
+	grid-template-columns: 7px 1fr;
+	gap: 24px 14px;
 }
 
-.line{
-    grid-area: line;
-    border-radius: 3.5px;
-    background-color: var(--red);
+.line {
+	grid-area: line;
+
+	border-radius: 3.5px;
+	background-color: var(--red);
 }
 
-.title{
-    color: var(--black);
-    font-size: 32px;
-    font-weight: 900;
-    line-height: 32px;
+.title {
+	color: var(--black);
+
+	font-size: 32px;
+	font-weight: 900;
+	line-height: 32px;
 }
 
 .mainText {
-    font-size: 23.5px;
-    font-weight: 400;
-    line-height: 25px;
+	font-size: 23.5px;
+	font-weight: 400;
+	line-height: 25px;
 }
 
 @media (max-width: 425px) {
-    .warning {
-        gap: 14px 10px;
-    }
+	.warning {
+		gap: 14px 10px;
+	}
 
-    .title{
-        font-size: 22px;
-        font-weight: 900;
-        line-height: 22px;
-    }
+	.title {
+		font-size: 22px;
+		font-weight: 900;
+		line-height: 22px;
+	}
 
-    .mainText {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 18px;
-    }
+	.mainText {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 18px;
+	}
 }

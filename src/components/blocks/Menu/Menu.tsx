@@ -140,7 +140,7 @@ function FirstLevel( props: MenuProps) {
                                     <span>{category.name}</span>
                                 </Link>
                             {category.isNested && buildSecondLevel(category.id, route)}
-                        </div>)
+                        </div>);
                 }
                 )}
             </div>
@@ -228,7 +228,7 @@ function FirstLevel( props: MenuProps) {
                 </motion.div>
             );
         }) ?? null;
-    }
+    };
 
     return (
         <>

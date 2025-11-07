@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import styles from './Price.module.css';
 import classNames from "classnames";
 

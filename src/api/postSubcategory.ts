@@ -8,7 +8,7 @@ export async function postSubcategory(subcategoryName: string, categoryId: strin
             method: "POST",
             body: JSON.stringify({ subcategoryName, categoryId }),
             headers: new Headers({ 'content-type': 'application/json' })
-        })
+        });
 
         if (!res.ok) {
             throw new Error(`HTTP error! status: ${res.status}`);

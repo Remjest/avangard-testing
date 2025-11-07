@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import styles from './EditSubcategoryPage.module.css'
+import styles from './EditSubcategoryPage.module.css';
 import ChangeButton from "../admin-components/ChangeButton/ChangeButton";
 import { Subcategory } from "@/src/interfaces";
 import HTag from "@/src/components/shared/HTag/HTag";

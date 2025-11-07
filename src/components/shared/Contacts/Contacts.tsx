@@ -1,7 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes} from "react";
 import styles from './Contacts.module.css';
 import classNames from "classnames";
-import Image, { StaticImageData } from "next/image";
 
 export interface ContactsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
     title?: string,

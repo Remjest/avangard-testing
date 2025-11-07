@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { JSX } from "react";
 import gStyles from '../Global.module.css';
 import styles from './Contacts.module.css';
@@ -56,5 +56,5 @@ export default function ContactsPage(): JSX.Element {
                 </div>
             </div>
         </>
-    )
+    );
 }

@@ -1,8 +1,9 @@
-.wrapper{
-    display: flex;
-    gap: 40px;
-    flex-direction: column;
-    justify-content: space-between;
+.wrapper {
+	display: flex;
+	gap: 40px;
+
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .firstLevelContainer {
@@ -14,7 +15,8 @@
 	display: grid;
 	grid-template-columns: 24px 1fr;
 	gap: 22px;
-    align-items: center;
+
+	align-items: center;
 
 	cursor: pointer;
 	user-select: none;
@@ -29,16 +31,16 @@
 
 	svg {
 		fill: var(--black);
-        stroke: var(--black);
+		stroke: var(--black);
 	}
 }
 
-.nostroke{
-    stroke: none !important;
+.nostroke {
+	stroke: none !important;
 }
 
-.nofill{
-    fill: none !important;
+.nofill {
+	fill: none !important;
 }
 
 .firstLevelActive {
@@ -48,7 +50,7 @@
 
 	svg {
 		fill: var(--active);
-        stroke: var(--active);
+		stroke: var(--active);
 	}
 }
 
@@ -72,6 +74,10 @@
 	gap: 22px;
 }
 
+.secondLevelActive span {
+	color: var(--active);
+}
+
 .secondLevel {
 	cursor: pointer;
 	user-select: none;
@@ -84,30 +90,24 @@
 		display: block;
 
 		padding: 2px 0;
-
-		color: var(--gray-dark);
 	}
 
 	span:hover {
-		 color: var(--active);
+		color: var(--active);
 	}
-}
-
-.secondLevelActive {
-    span {
-        color: var(--active);
-    }
 }
 
 .thirdLevelContainer {
 	display: grid;
 	overflow: hidden;
-    margin-left: 5.5px;
-    padding-left: 30.5px;
-    padding-top: 0;
+
+	margin-left: 5.5px;
+	padding-top: 0;
 	padding-right: 0;
 	padding-bottom: 0;
-    border-left: 1px solid var(--black);
+	padding-left: 30.5px;
+
+	border-left: 1px solid var(--black);
 	gap: 22px;
 }
 
