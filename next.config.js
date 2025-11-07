@@ -28,6 +28,7 @@ const nextConfig = {
             pathname: '/**', // разрешает любой путь
         },
         ],
+        unoptimized: true,
     },
 };
 
