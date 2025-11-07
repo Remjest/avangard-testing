@@ -308,6 +308,10 @@
 		padding: 0 5px;
 	}
 
+	.preview {
+		max-width: 100% !important;
+	}
+
 	.tip {
 		font-size: 13px;
 		line-height: 16px;

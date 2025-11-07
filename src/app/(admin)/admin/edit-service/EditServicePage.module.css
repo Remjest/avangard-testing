@@ -297,6 +297,10 @@
 		line-height: 25px !important;
 	}
 
+	.preview {
+		max-width: 100% !important;
+	}
+
 	.withLine,
 	.important {
 		margin: 0 10px;
