@@ -1,5 +1,7 @@
 # --- Этап 1: сборка проекта ---
 FROM node:20-alpine AS builder
+RUN apk add --no-cache ca-certificates
+WORKDIR /app
 
 # Рабочая директория
 WORKDIR /app
