@@ -21,6 +21,11 @@
 	line-height: 17px;
 }
 
+.image {
+	width: 100%;
+	max-width: 500px;
+}
+
 @media (max-width: 1050px) {
 	.wrapper {
 		grid-template-columns: 1fr;
