@@ -5,10 +5,11 @@ import styles from './Header.module.css';
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Logo from './logo.svg';
-import Open from './open.svg';
+import Open from './open.png';
 import Close from './close.svg';
 import { motion } from 'framer-motion';
 import Sidebar from '../Sidebar/Sidebar';
+import ImgTag from '../../shared/ImgTag/ImgTag';
 
 export interface HeaderProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
     menu: 'admin' | 'client'
@@ -44,7 +45,7 @@ export default function Header({ menu, className, ...props }: HeaderProps) {
             <header className={classNames(styles.header, className)} {...props}>
                 <Logo className={styles.logo} />
                 <div className={styles.title}>ООО «АВАНГАРД»</div>
-                <Open onClick={() => setIsOpened(true)} />
+                <div className={styles.menuOpen} onClick={() => setIsOpened(true)}><ImgTag src={Open} /></div>
                 <motion.div
                     variants={variants}
                     initial='closed'
