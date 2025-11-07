@@ -46,8 +46,7 @@
 }
 
 .logo {
-	width: 162px;
-	height: 132px;
+	width: 162px !important;
 }
 
 .login {

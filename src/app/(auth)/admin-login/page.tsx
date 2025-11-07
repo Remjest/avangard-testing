@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from './AdminLogin.module.css';
-import Logo from './logo.svg';
+import Logo from './logo.png';
 import Button from "@/src/components/shared/Button/Button";
 import classNames from "classnames";
+import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
 
 export default function AdminLoginPage() {
     const [login, setLogin] = useState<string>("");
@@ -45,7 +46,7 @@ export default function AdminLoginPage() {
 
     return (
         <div className={styles.wrapper}>
-            <Logo className={styles.logo}/>
+            <ImgTag className={styles.logo} src={Logo}/>
             <div className={styles.formContainer}>
                     <form
                         className={styles.form}

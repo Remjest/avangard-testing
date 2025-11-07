@@ -25,8 +25,7 @@
 }
 
 .logoImg {
-	width: 69px;
-	height: 56.1px;
+	width: 69px !important;
 }
 
 .logo span {

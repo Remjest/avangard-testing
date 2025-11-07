@@ -38,7 +38,7 @@
 }
 
 .logo {
-	width: 244px;
+	width: 244px !important;
 }
 
 .title h1 {
@@ -108,8 +108,7 @@
 	}
 
 	.logo {
-		width: 144px;
-		height: 138px;
+		width: 144px !important;
 	}
 
 	.title h1 {

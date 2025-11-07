@@ -1,12 +1,13 @@
 import styles from './Footer.module.css';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import Logo from './logo.svg';
+import Logo from './logo.png';
 import Geo from './geo.svg';
 import Time from './time.svg';
 import Mail from './mail.svg';
 import Num from './num.svg';
 import Link from 'next/link';
 import classNames from 'classnames';
+import ImgTag from '../../shared/ImgTag/ImgTag';
 
 export interface FooterProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>{
     className?: string,
@@ -18,7 +19,7 @@ export default function Footer({className,...props}: FooterProps) {
         <footer className={classNames(styles.footer, className)} {...props}>
             <div className={styles.wrapper}>
                 <div className={styles.logo}>
-                    <Logo className={styles.logoImg}/>
+                    <ImgTag className={styles.logoImg} src={Logo}></ImgTag>
                     <span>ООО «АВАНГАРД»</span>
                 </div>
                 <div className={styles.border}></div>

@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import styles from './Hero.module.css';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import Logo from './logo.svg';
+import Logo from './logo.png';
 import Arrow from './arrow.svg';
+import ImgTag from '../../shared/ImgTag/ImgTag';
 
 
 export interface HeroProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -14,7 +15,7 @@ export default function Hero({ className, ...props }: HeroProps) {
     return (
         <div className={classNames(styles.hero, className)} {...props}>
             <div className={styles.title}>
-                <Logo className={styles.logo}/>
+                <ImgTag className={styles.logo} src={Logo}></ImgTag>
                 <h1>АВАНГАРД</h1>
             </div>
             
