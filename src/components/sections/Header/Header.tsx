@@ -9,7 +9,6 @@ import Open from './open.svg';
 import Close from './close.svg';
 import { motion } from 'framer-motion';
 import Sidebar from '../Sidebar/Sidebar';
-import ImgTag from '../../shared/ImgTag/ImgTag';
 
 export interface HeaderProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
     menu: 'admin' | 'client'
