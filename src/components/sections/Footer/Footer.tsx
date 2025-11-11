@@ -31,7 +31,7 @@ export default function Footer({className,...props}: FooterProps) {
                     
                     <span className={styles.point}>
                         <Time />
-                        Пн-пт: 10:00 - 19:00
+                        Пн-пт: 10:00 - 19:00 <br /> Cб-вс: по предв. записи
                     </span>
                     <div className={classNames(styles.point, styles.phone)}>
                         <Num/>

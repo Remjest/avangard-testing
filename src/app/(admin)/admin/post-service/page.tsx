@@ -15,12 +15,15 @@ import { getShortsByCategory } from "@/src/api/shortsByCategory";
 import { postImage } from "@/src/api/postImage";
 import { postService } from "@/src/api/postService";
 import { getAllSubcategories } from "@/src/api/allSubcategories";
+import Video from "@/src/components/shared/Video/Video";
+import { postVideo } from "@/src/api/postVideo";
 
 export default function EditServicePage() {
     const router = useRouter();
 
     const [mainImg, setMainImg] = useState<string | null>(null);
     const [preview, setPreview] = useState<string | null>(null);
+    const [video, setVideo] = useState<string | null>(null);
     const [subcategories, setSubcategories] = useState<{id: string, name: string}[] | null>(null);
 
     useEffect(() => {
@@ -39,6 +42,7 @@ export default function EditServicePage() {
         mainImage: FileList | null;
         previewImage: FileList | null;
         subcategoryId: string;
+        videoFile: FileList | null;
     };
 
     const {
@@ -51,7 +55,7 @@ export default function EditServicePage() {
     const onSubmit: SubmitHandler<FormValues> = async (newData, e) => {
         e?.preventDefault();
 
-        const { subcategoryId, mainImage, previewImage, ...serviceData } = newData;
+        const { subcategoryId, mainImage, videoFile, previewImage, ...serviceData } = newData;
 
         const allServicesData = await Promise.all([getShortsByCategory(1), getShortsByCategory(2)]);
         if (!allServicesData[0].success || !allServicesData[1].success) {
@@ -72,6 +76,7 @@ export default function EditServicePage() {
 
         let newPicLinkMain: string | undefined = newData.picLinkMain;
         let newPicLinkPreview: string | undefined = newData.picLinkPreview;
+        let newVideoLink = newData.videoLink;
 
         if (mainImage && mainImage[0]) {
             const uploadMain = await postImage(mainImage[0]);
@@ -98,10 +103,20 @@ export default function EditServicePage() {
             } else return;
         }
 
+        if (videoFile && videoFile[0]) {
+            const uploadVideo = await postVideo(videoFile[0]);
+            if (uploadVideo.success) {
+                newVideoLink = uploadVideo.data;
+                console.log(newVideoLink);
+            }
+            else window.alert("Ошибка загрузки превью - будет использовано старое изображение.");
+        }
+
         const editData: Service = {
             ...serviceData,
             picLinkMain: newPicLinkMain,
             picLinkPreview: newPicLinkPreview,
+            videoLink: newVideoLink,
         };
 
         const { success } = await postService(subcategoryId, editData);
@@ -157,7 +172,7 @@ export default function EditServicePage() {
                 </div>
                 {errors.subcategoryId && <div className={styles.err}> {errors.subcategoryId.message} </div>}
 
-                <label className={styles.label}>Введите МЕТА заголовок страницы (SEO)</label>
+                                <label className={styles.label}>Введите МЕТА заголовок страницы (SEO)</label>
                 <label className={styles.tip}>
                     <span className={styles.tipRed}>ТЭГИ: не обрабатываются</span><br /><br />
                     <span className={styles.tipGreen}>МЕТА-заголовок (meta title)</span> — это строка, которая отображается в названии вкладки браузера и в результатах поиска.<br />
@@ -168,9 +183,14 @@ export default function EditServicePage() {
                 <input type="text"
                     placeholder="Введите МЕТА заголовок"
                     className={styles.input}
-                    {...register("metaTitle")}
-                    
+                    {...register("metaTitle", {
+                        maxLength: {
+                            value: 255,
+                            message: "Длина должна быть меньше 255 символов"
+                        }
+                    })}
                 />
+                {errors.metaTitle && <div className={styles.err}> {errors.metaTitle.message} </div>}
 
                 <label className={styles.label}>Введите МЕТА описание страницы (SEO)</label>
                 <label className={styles.tip}>
@@ -183,9 +203,14 @@ export default function EditServicePage() {
                 <textarea
                     placeholder="Введите МЕТА описание"
                     className={styles.textarea}
-                    {...register("metaDescription")}
-                    
+                    {...register("metaDescription", {
+                        maxLength: {
+                            value: 400,
+                            message: "Длина должна быть меньше 400 символов"
+                        }
+                    })}
                 />
+                {errors.metaDescription && <div className={styles.err}> {errors.metaDescription.message} </div>}
 
                 <label className={styles.label}>Введите МЕТА ключевые слова страницы (SEO)</label>
                 <label className={styles.tip}>
@@ -197,9 +222,14 @@ export default function EditServicePage() {
                 <textarea
                     placeholder="Введите ключевые слова"
                     className={styles.textarea}
-                    {...register("metaKeywords")}
-                    
+                    {...register("metaKeywords", {
+                        maxLength: {
+                            value: 255,
+                            message: "Длина должна быть меньше 255 символов"
+                        }
+                    })}
                 />
+                {errors.metaKeywords && <div className={styles.err}> {errors.metaKeywords.message} </div>}
 
                 <label className={styles.label}>Введите относительный путь к услуге на сайте</label>
                 <label className={styles.tip}>
@@ -213,10 +243,15 @@ export default function EditServicePage() {
                 <input type="text"
                     placeholder="Введите относительный путь"
                     className={styles.input}
-                    {...register("alias", { required:'Заполните поле' })}
+                    {...register("alias", { required:'Заполните поле',
+                        maxLength: {
+                            value: 255,
+                            message: "Длина должна быть меньше 255 символов"
+                        }
+                    })}
                     
                 />
-                {errors.title && <div className={styles.err}> {errors.title.message} </div>}
+                {errors.alias && <div className={styles.err}> {errors.alias.message} </div>}
 
                 <label className={styles.label}>Введите название для услуги</label>
                 <label className={styles.tip}>
@@ -227,7 +262,12 @@ export default function EditServicePage() {
                 <input type="text"
                     placeholder="Введите новое название"
                     className={styles.input}
-                    {...register("title", { required:'Заполните поле' })}
+                    {...register("title", { required:'Заполните поле',
+                        maxLength: {
+                            value: 500,
+                            message: "Длина должна быть меньше 500 символов"
+                        }
+                    })}
                     
                 />
                 {errors.title && <div className={styles.err}> {errors.title.message} </div>}
@@ -240,7 +280,12 @@ export default function EditServicePage() {
                 <textarea
                     placeholder="Введите основной текст"
                     className={styles.textarea}
-                    {...register("mainText", { required:'Заполните поле' })}
+                    {...register("mainText", { required:'Заполните поле',
+                        maxLength: {
+                            value: 5000,
+                            message: "Длина должна быть меньше 5000 символов"
+                        }
+                    })}
                     
                 />
                 {errors.mainText && <div className={styles.err}> {errors.mainText.message} </div>}
@@ -311,8 +356,14 @@ export default function EditServicePage() {
                 <input type="text"
                     placeholder="Введите подзаголовок"
                     className={styles.input}
-                    {...register("subtitle")}
+                    {...register("subtitle", {
+                        maxLength: {
+                            value: 255,
+                            message: "Длина должна быть меньше 255 символов"
+                        }
+                    })}
                 />
+                {errors.subtitle && <div className={styles.err}> {errors.subtitle.message} </div>}
 
                 <label className={styles.label}>Введите дополнительный текст</label>
                 <label className={styles.tip}>
@@ -322,8 +373,44 @@ export default function EditServicePage() {
                 <textarea
                     placeholder="Введите дополнительный текст"
                     className={styles.textarea}
-                    {...register("subText")}
+                    {...register("subText", {
+                        maxLength: {
+                            value: 3000,
+                            message: "Длина должна быть меньше 3000 символов"
+                        }
+                    })}
                 />
+                {errors.subText && <div className={styles.err}> {errors.subText.message} </div>}
+                
+                <label className={styles.label}>Выберите видео для услуги</label>
+                <label className={styles.tip}>
+                    <span className={styles.tipRed}>ТЭГИ: не обрабатываются </span><br /><br />
+                    <span className={styles.tipGreen}>Необязательное поле </span><br /><br />
+                </label>
+                <input
+                    className={styles.hiddenInput}
+                    type="file"
+                    id="videoInput"
+                    accept="video/*"
+                    {...register("videoFile", {
+                        onChange: (e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                            if (video) URL.revokeObjectURL(video);
+                            setVideo(URL.createObjectURL(file));
+                        }
+                        },
+                    })}
+                />
+                <label htmlFor="videoInput" className={styles.uploadLabel}>
+                    {video ? "Изменить видео" : "Загрузить видео"}
+                </label>
+                {video ?
+                    <Video className={classNames(styles.preview)} videoUrl={video} /> :
+                    <ImgTag className={classNames(styles.preview)} src='/default.jpg' alt="Здесь будет ваше видео" width={800} height={600} />
+                }
+                {errors.videoFile && <div className={styles.err}>{errors.videoFile.message}</div>}
+
 
                 <label className={styles.label}>Введите важную информацию</label>
                 <label className={styles.tip}>
@@ -333,8 +420,14 @@ export default function EditServicePage() {
                 <textarea
                     placeholder="Введите важную информацию"
                     className={styles.textarea}
-                    {...register("important")}
+                    {...register("important", {
+                        maxLength: {
+                            value: 1000,
+                            message: "Длина должна быть меньше 1000 символов"
+                        }
+                    })}
                 />
+                {errors.important && <div className={styles.err}> {errors.important.message} </div>}
 
                 <label className={styles.label}>Введите справочную информацию</label>
                 <label className={styles.tip}>
@@ -344,8 +437,14 @@ export default function EditServicePage() {
                 <textarea
                     placeholder="Введите справочную информацию"
                     className={styles.textarea}
-                    {...register("extraText")}
+                    {...register("extraText", {
+                        maxLength: {
+                            value: 2000,
+                            message: "Длина должна быть меньше 2000 символов"
+                        }
+                    })}
                 />
+                {errors.extraText && <div className={styles.err}> {errors.extraText.message} </div>}
 
                 <label className={styles.label}>Введите цену</label>
                 <label className={styles.tip}>
@@ -356,10 +455,15 @@ export default function EditServicePage() {
                 <input type="text"
                     placeholder="Введите цену"
                     className={styles.input}
-                    {...register("price", { required:'Заполните поле' })}
+                    {...register("price", { required:'Заполните поле',
+                        maxLength: {
+                            value: 255,
+                            message: "Длина должна быть меньше 255 символов"
+                        }
+                    })}
                     
                 />
-                {errors.title && <div className={styles.err}> {errors.title.message} </div>}
+                {errors.price && <div className={styles.err}> {errors.price.message} </div>}
 
                 <button className={styles.button} type="submit">Отправить изменения</button>
                 <label className={styles.label}>Как все будет на странице можете посмотреть ниже</label>
@@ -367,12 +471,16 @@ export default function EditServicePage() {
             <HTag className={styles.h1} tag="h1" direction="fromRight">{watch("title")} в Томске</HTag>
             <div className={styles.mainWrapper}>
                 <ImgTag className={styles.image} src={mainImg ? mainImg : '/default.jpg'} alt="Здесь будет ваше изображение" width={800} height={600} />
-                <HTag className={styles.mainTitle} tag="h1" direction="fromRight">{watch("title")}</HTag>
+                <HTag className={styles.mainTitle} tag="h2" direction="fromRight">{watch("title")}</HTag>
                 <span className={styles.mainText}>{parseToHTML(watch("mainText"))}</span>
                 <HTag className={styles.subTitle} tag="h2" direction="fromLeft">{watch("subtitle")}</HTag>
                 <span className={styles.subText}>{parseToHTML(watch("subText"))}</span>
-
             </div>
+            <HTag className={styles.h1} tag="h2" direction="fromRight">Подробности услуги — на видео</HTag>
+            {video ?
+                <Video className={classNames(styles.video)} videoUrl={video} /> :
+                <ImgTag className={classNames(styles.video)} src='/default.jpg' alt="Здесь будет ваше видео" width={800} height={600} />
+            }
             <Important className={styles.important}>{parseToHTML(watch("important"))}</Important>
             <div className={styles.withLine}>
                 {parseToHTML(watch("extraText"))}

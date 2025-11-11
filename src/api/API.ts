@@ -19,6 +19,9 @@ const API = {
     },
     images: {
         postImage: process.env.NEXT_PUBLIC_DOMAIN + '/api/upload/image'
+    },
+    videos: {
+        postVideo: process.env.NEXT_PUBLIC_DOMAIN + '/api/upload/video'
     }
 };
 

@@ -8,16 +8,14 @@ export interface VideoProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElem
 }
 
 export default function Video({ videoUrl, className, ...props }: VideoProps) {
-    
-    const url = `${process.env.NEXT_PUBLIC_DOMAIN}/videos/${videoUrl}`;
 
     return (
         <div className={classNames(styles.wrapper, className)}  {...props}>
             <video
                 className={styles.video}
-                src={url}
+                src={videoUrl}
                 loop
-                poster='./videoPreview.jpg'
+                poster='/videoPreview.jpg'
                 preload="metadata"
                 controls
             />

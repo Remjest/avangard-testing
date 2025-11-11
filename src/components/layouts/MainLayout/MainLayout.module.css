@@ -30,12 +30,83 @@
 
 .main {
 	grid-area: main;
+
+	padding-bottom: -75px;
 }
 
 .footer {
 	grid-area: footer;
 
 	z-index: 3;
+}
+
+.stickyWrapper {
+	position: sticky;
+	z-index: 2;
+	right: 10px;
+	bottom: 15px;
+
+	display: block;
+	float: right;
+
+	width: 45px;
+	height: 0;
+}
+
+.contactsWrapper {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+
+	display: flex;
+	flex-direction: column;
+
+	width: 45px;
+	margin-bottom: 15px;
+	margin-left: auto;
+	gap: 10px;
+}
+
+.whatsAppButton {
+	width: 45px;
+}
+
+.phoneButton {
+	width: 45px;
+}
+
+.noBorder {
+	border-radius: 0 !important;
+}
+
+@media (min-width: 1201px) {
+	.stickyWrapper {
+		right: 20px;
+		bottom: 30px;
+
+		display: block;
+		float: right;
+
+		width: 75px;
+	}
+
+	.contactsWrapper {
+		width: 75px;
+		margin-bottom: 30px;
+		margin-left: auto;
+
+		gap: 10px;
+	}
+
+	.whatsAppButton {
+		width: 75px;
+	}
+
+	.phoneButton {
+		display: none;
+
+		width: 75px;
+	}
 }
 
 @media (max-width: 1200px) {

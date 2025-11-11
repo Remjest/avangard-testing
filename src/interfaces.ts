@@ -37,4 +37,5 @@ export interface Service {
     subtitle?:       string;
     alias:           string;
     subText?:        string;
+    videoLink?:      string;
 }

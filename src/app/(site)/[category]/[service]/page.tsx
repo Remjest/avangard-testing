@@ -11,6 +11,7 @@ import Price from "@/src/components/shared/Price/Price";
 import { getByAlias } from "@/src/api/alias";
 import { getShortsByCategory } from "@/src/api/shortsByCategory";
 import classNames from "classnames";
+import Video from "@/src/components/shared/Video/Video";
 
 export const revalidate = 300;
 
@@ -105,7 +106,7 @@ export default async function ServicePage({ params }: { params: Promise<{ catego
                 [styles.withoutSub]: !(pageData.subtitle && pageData.subText)
             })}>
                 <ImgTag className={styles.image} src={`${process.env.NEXT_PUBLIC_DOMAIN}${pageData.picLinkMain}`} width={800} height={600}/>
-                <HTag  className={styles.mainTitle} tag="h1" direction="fromRight">{pageData.title}</HTag>
+                <HTag  className={styles.mainTitle} tag="h2" direction="fromRight">{pageData.title}</HTag>
                 <span className={styles.mainText}>{parseToHTML(pageData.mainText)}</span>
                 {pageData.subtitle && pageData.subText && 
                     <>
@@ -113,8 +114,13 @@ export default async function ServicePage({ params }: { params: Promise<{ catego
                         <span className={styles.subText}>{parseToHTML(pageData.subText)}</span>
                     </>
                 }
-
             </div>
+            {pageData.videoLink &&
+                <>
+                    <HTag className={styles.h1} tag="h2" direction="fromRight">Подробности услуги — на видео</HTag>
+                    <Video className={classNames(styles.video)} videoUrl={`${process.env.NEXT_PUBLIC_DOMAIN}${pageData.videoLink}`} />
+                </>
+            }
             {pageData.important && <Important className={styles.important}>{parseToHTML(pageData.important)}</Important>}
             {pageData.extraText && <div className={styles.withLine}>
                 {parseToHTML(pageData.extraText)}

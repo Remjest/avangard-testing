@@ -8,6 +8,10 @@ import Header from "../../components/sections/Header/Header";
 import Sidebar from "../../components/sections/Sidebar/Sidebar";
 import Main from "../../components/sections/Main/Main";
 import Footer from "../../components/sections/Footer/Footer";
+import Link from "next/link";
+import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
+import Phone from './img/phone.png';
+import WhatsApp from './img/whatsapp.png';
 
 const montserrat = Montserrat({
   variable: "--main-font",
@@ -31,6 +35,16 @@ export default function MainLayout({children} : MainLayoutProps) {
                 <Sidebar menu='client' className={styles.sidebar} />
                 <Main className={styles.main}>
                     {children}
+                    <div className={styles.stickyWrapper}>
+                        <div className={styles.contactsWrapper}>
+                            <Link className={styles.whatsAppButton} href="https://wa.me/79539193800?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
+                                <ImgTag className={styles.noBorder} src={WhatsApp} />
+                            </Link>
+                            <Link className={styles.phoneButton} href="tel:83822233800">
+                                <ImgTag className={styles.noBorder} src={Phone} />
+                            </Link>
+                        </div>
+                    </div>
                 </Main>
                 <Footer className={styles.footer}/>
             </body>

@@ -17,7 +17,7 @@
 	flex-direction: column;
 
 	margin-top: 20px;
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 	padding-left: 40px;
 }
 
@@ -27,6 +27,12 @@
 	font-size: 16px;
 	font-weight: 300;
 	line-height: 18px;
+}
+
+.sectionWrapper img {
+	width: 186px;
+
+	border-radius: 0 !important;
 }
 
 .withLine {

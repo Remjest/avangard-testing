@@ -45,6 +45,12 @@
 	grid-area: subText;
 }
 
+.video{
+    padding: 0 30px;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
 .important {
 	margin: 0 30px;
 }
