@@ -1,10 +1,7 @@
 .wrapper {
 	overflow: hidden;
 
-	/* max-width: 1400px; */
 	width: 100%;
-
-	border-radius: 7px;
 }
 
 .video {
@@ -12,4 +9,6 @@
 
 	width: 100%;
 	height: auto;
+
+	border-radius: 7px;
 }
