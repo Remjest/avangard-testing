@@ -71,3 +71,7 @@ body {
 .italic {
 	font-style: italic;
 }
+
+.link {
+	text-decoration: underline;
+}

@@ -9,6 +9,7 @@ import Open from './open.svg';
 import Close from './close.svg';
 import { motion } from 'framer-motion';
 import Sidebar from '../Sidebar/Sidebar';
+import Link from 'next/link';
 
 export interface HeaderProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
     menu: 'admin' | 'client'
@@ -42,8 +43,8 @@ export default function Header({ menu, className, ...props }: HeaderProps) {
     return (
         <>
             <header className={classNames(styles.header, className)} {...props}>
-                <Logo className={styles.logo} />
-                <div className={styles.title}>ООО «АВАНГАРД»</div>
+                <Link href='/' className={styles.logo}><Logo /></Link>
+                <Link href='/' className={styles.title}><div>ООО «АВАНГАРД»</div></Link>
                 <div className={styles.menuOpen} onClick={() => setIsOpened(true)}><Open /></div>
                 <motion.div
                     variants={variants}

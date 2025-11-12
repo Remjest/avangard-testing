@@ -4,9 +4,10 @@ export const parseToHTML = (text: string | undefined): ReactNode => {
     if (!text) return null;
 
     interface Node {
-        type: 'text' | 'bold' | 'italic' | 'br';
+        type: 'text' | 'bold' | 'italic' | 'br' | 'link';
         content?: string;
         children?: Node[];
+        source?: string;
     }
 
     const root: Node = { type: 'text', children: [] };
@@ -26,15 +27,15 @@ export const parseToHTML = (text: string | undefined): ReactNode => {
     for (let i = 0; i < text.length;) {
         if (text.startsWith('/bold/', i)) {
             flushText();
-            const boldNode: Node = { type: 'bold', children: [] };
-            stack[stack.length - 1].children!.push(boldNode);
-            stack.push(boldNode);
+            const node: Node = { type: 'bold', children: [] };
+            stack[stack.length - 1].children!.push(node);
+            stack.push(node);
             i += 6;
         } else if (text.startsWith('/italic/', i)) {
             flushText();
-            const italicNode: Node = { type: 'italic', children: [] };
-            stack[stack.length - 1].children!.push(italicNode);
-            stack.push(italicNode);
+            const node: Node = { type: 'italic', children: [] };
+            stack[stack.length - 1].children!.push(node);
+            stack.push(node);
             i += 8;
         } else if (text.startsWith('//bold//', i)) {
             flushText();
@@ -50,6 +51,29 @@ export const parseToHTML = (text: string | undefined): ReactNode => {
             flushText();
             stack[stack.length - 1].children!.push({ type: 'br' });
             i += 3;
+
+        // ✅ Новый тег /link source='...'/...//link//
+        } else if (text.startsWith('/link', i)) {
+            flushText();
+
+            // ищем source='...'
+            const linkMatch = text.slice(i).match(/^\/link\s+source=['"]([^'"]+)['"]\s*\//);
+            if (linkMatch) {
+                const source = linkMatch[1];
+                const linkNode: Node = { type: 'link', source, children: [] };
+                stack[stack.length - 1].children!.push(linkNode);
+                stack.push(linkNode);
+                i += linkMatch[0].length;
+            } else {
+                console.warn('Неверный формат тега link');
+                i += 5;
+            }
+        } else if (text.startsWith('//link//', i)) {
+            flushText();
+            if (stack[stack.length - 1].type === 'link') stack.pop();
+            else console.warn('Несоответствие тегов link');
+            i += 8;
+
         } else {
             buffer += text[i];
             i++;
@@ -80,9 +104,21 @@ export const parseToHTML = (text: string | undefined): ReactNode => {
                 );
             case 'br':
                 return <br key={key} />;
+            case 'link':
+                return (
+                    <a
+                        key={key}
+                        href={node.source}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link"
+                    >
+                        {node.children?.map(renderNode)}
+                    </a>
+                );
             default:
                 return null;
-            }
+        }
     };
 
     return <>{root.children?.map(renderNode)}</>;

@@ -138,14 +138,19 @@ export default function EditServicePage() {
 
                     /italic/…//italic// — делает текст курсивным. <br /><span className={styles.tipGreen}>Пример:</span> /italic/Пример текста//italic// → {parseToHTML('/italic/Пример текста//italic//')}<br /><br />
 
+                    /link source='https://...' /текст//link// — добавляет ссылку.  
+                    Внутри укажите текст, который будет кликабельным. <br />
+                    <span className={styles.tipGreen}>Пример:</span>  
+                    /link source="https://google.com"/ Перейти на сайт //link// → {parseToHTML('/link source="https://google.com"/ Перейти на сайт //link//')}<br /><br />
+
                     /n/ — перенос строки. <br /><span className={styles.tipGreen}>Пример: </span>• Первая строка /n/• Вторая строка → {parseToHTML('/n/• Первая строка /n/• Вторая строка')}<br /><br />
                     Чтобы отделить текст одной или несколькими строками, введите несколько тэгов подряд. <br /> <span className={styles.tipGreen}>Пример:</span> Первая строка /n//n/ Вторая строка → {parseToHTML('/n/Первая строка /n//n/ Вторая строка')}
                     <br /><br />
 
-                    Теги всегда пишутся со слэшами и должны закрываться: /bold/текст//bold//, /italic/текст//italic//. <span className={styles.tipRed}>Исключение</span> — /n/, он не требует закрытия. <br /><br />
+                    Теги всегда пишутся со слэшами и должны закрываться: /bold/текст//bold//, /italic/текст//italic//, /link source='...' /текст//link//.<br /><span className={styles.tipRed}>Исключение</span> — /n/, он не требует закрытия. <br /><br />
 
                     Теги можно вкладывать друг в друга, главное — закрывать их в правильном порядке.<br />
-                    <span className={styles.tipGreen}>Пример:</span> /bold/Жирный и /italic/курсивный//italic// текст//bold// → {parseToHTML('/bold/Жирный и /italic/курсивный//italic// текст//bold//')}<br /><br />
+                    <span className={styles.tipGreen}>Пример:</span> /bold/Жирный и /italic/курсивный текст со /link source="https://google.com"/ ссылкой //link// //italic// //bold// → {parseToHTML('/bold/Жирный и /italic/курсивный текст со /link source="https://google.com"/ ссылкой //link////italic// //bold//')}<br /><br />
                     Тэги можно использовать не во всех полях услуги: мы подписали, где тэги будут обрабатываться, а где нет. <br />Вы всегда можете проверить, правильно ли обработались тэги — просто посмотрите на получившуюся услугу снизу. 
                 </label>
 
