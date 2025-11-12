@@ -3,7 +3,7 @@
 
 	display: grid;
 	grid-template-columns: 360px minmax(320px, auto);
-	grid-template-rows: 1fr auto;
+	grid-template-rows: 1fr auto !important;
 	grid-template-areas:
 		"sidebar main"
 		"footer footer";
@@ -30,8 +30,6 @@
 
 .main {
 	grid-area: main;
-
-	padding-bottom: -75px;
 }
 
 .footer {
