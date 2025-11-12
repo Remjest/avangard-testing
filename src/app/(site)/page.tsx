@@ -90,7 +90,7 @@ export default function HomePage(): JSX.Element{
     return (
         <>
             <Hero />
-            <div className={gStyles.wrapper}>
+            <div className={styles.wrapper}>
                 <HTag tag="h2" direction="fromRight">О КОМПАНИИ</HTag>
                 <div className={gStyles.sectionWrapper}>
                     <div className={styles.fourGrid}>

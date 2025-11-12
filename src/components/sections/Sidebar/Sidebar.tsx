@@ -6,6 +6,7 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import Logo from './logo.svg';
 import Menu from '../../blocks/Menu/Menu';
 import AdminMenu from '../../../app/(admin)/admin/admin-components/adminMenu/adminMenu';
+import Link from 'next/link';
 
 
 export interface SidebarProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -19,7 +20,7 @@ export default function Sidebar({ menu, className, ...props }: SidebarProps) {
     return (
         <div className={classNames(styles.sidebar, className)} {...props}>
             <div className={styles.wrapper}>
-                <Logo className={styles.logo} />
+                <Link href='/'><Logo className={styles.logo} /></Link>
                 {menu === 'client' && <Menu />}
                 {menu === 'admin' && <AdminMenu />}
             </div>

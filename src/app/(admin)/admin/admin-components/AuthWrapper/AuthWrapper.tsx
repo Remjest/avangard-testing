@@ -5,10 +5,9 @@ import { useRouter } from "next/navigation";
 
 export interface AuthWrapperProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
     children: ReactNode,
-    className?: string
 }
 
-export default function AuthWrapper({ className, children }: AuthWrapperProps) {
+export default function AuthWrapper({ children }: AuthWrapperProps) {
     const [authorized, setAuthorized] = useState(false);
     const router = useRouter();
 
@@ -29,7 +28,7 @@ export default function AuthWrapper({ className, children }: AuthWrapperProps) {
         .catch(() => router.push("/admin-login"));
     }, [router]);
 
-    if (!authorized) return <p>Проверка доступа...</p>;
+    if (!authorized) return null;
 
-    return <main className={className}>{children}</main>;
+    return children;
 }

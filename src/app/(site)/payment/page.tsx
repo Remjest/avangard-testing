@@ -4,6 +4,7 @@ import HTag from "@/src/components/shared/HTag/HTag";
 import { parseToHTML } from "@/src/helpers";
 import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
 import Qr from './qr.png';
+import Link from "next/link";
 
 
 export default function PaymentPage(): JSX.Element { 
@@ -25,7 +26,9 @@ export default function PaymentPage(): JSX.Element {
             </div>
             <HTag className={styles.h3} tag="h3" direction="fromLeft">QR-код</HTag>
             <div className={styles.sectionWrapper}>
-                <ImgTag src={Qr} />
+                <Link className={styles.link}  href={'http://sberbank.com/sms/shpa/?cs=705093585245&psh=p&did=1762789557712000461'} target="_blank" rel="noopener noreferrer">
+                    <ImgTag src={Qr} />
+                </Link>
             </div>
             <HTag className={styles.h3} tag="h3" direction="fromLeft">Оплата по счету</HTag>
             <div className={styles.sectionWrapper}>

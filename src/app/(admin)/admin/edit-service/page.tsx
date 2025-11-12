@@ -360,7 +360,7 @@ export default function EditServicePage() {
                 <label className={styles.label}>Выберите видео для услуги</label>
                 <label className={styles.tip}>
                     <span className={styles.tipRed}>ТЭГИ: не обрабатываются </span><br /><br />
-                    <span className={styles.tipGreen}>Необязательное поле </span><br /><br />
+                    <span className={styles.tipGreen}>Необязательное поле </span><br />
                 </label>
                 <input
                     className={styles.hiddenInput}

@@ -21,11 +21,13 @@ export const metadata: Metadata = {
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru">
-        <body className={classNames(montserrat.variable, styles.layout)}>
-            <Header menu="admin" className={styles.header} />
-            <Sidebar menu="admin" className={styles.sidebar} />
-            <AuthWrapper className={styles.main}>{children}</AuthWrapper>
-            <Footer className={styles.footer}/>
+          <body className={classNames(montserrat.variable, styles.layout)}>
+            <AuthWrapper>
+                <Header menu="admin" className={styles.header} />
+                <Sidebar menu="admin" className={styles.sidebar} />
+                <main className={styles.main}>{children}</main>
+                <Footer className={styles.footer} />
+            </AuthWrapper>
         </body>
     </html>
   );

@@ -35,6 +35,15 @@
 	border-radius: 0 !important;
 }
 
+.link{
+    width: fit-content;
+    transition: all 0.1s ease-in;
+}
+  
+.link:hover{
+    transform: scale(1.05);
+}
+
 .withLine {
 	position: relative;
 
@@ -73,6 +82,14 @@
 }
 
 @media (max-width: 425px) {
+    .link:hover{
+        transform: none;
+    }
+
+    .link{
+        margin: 0 auto;
+    }
+
 	.withLine {
 		font-size: 16px;
 		line-height: 18px;

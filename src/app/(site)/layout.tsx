@@ -12,6 +12,8 @@ import Link from "next/link";
 import ImgTag from "@/src/components/shared/ImgTag/ImgTag";
 import Phone from './img/phone.png';
 import WhatsApp from './img/whatsapp.png';
+import Tg from './img/tg.png';
+
 
 const montserrat = Montserrat({
   variable: "--main-font",
@@ -19,8 +21,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Независимая оценочная компания | ООО «Авангард»",
-  description: "ООО «Авангард» - Мы проводим любой вид независимой оценки и экспертизы имущества. Помогаем клиентам отстоять их интересы и получить достойную компенсацию в г. Томске и Области",
+  title: "Независимая оценочная компания | ООО «АВАНГАРД»",
+  description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества. Помогаем клиентам отстоять их интересы и получить достойную компенсацию в г. Томске и Области",
 };
 
 export interface MainLayoutProps {
@@ -37,6 +39,9 @@ export default function MainLayout({children} : MainLayoutProps) {
                     {children}
                     <div className={styles.stickyWrapper}>
                         <div className={styles.contactsWrapper}>
+                            <Link className={styles.whatsAppButton} href="https://t.me/avangard70ru?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
+                                <ImgTag className={styles.noBorder} src={Tg} />
+                            </Link>
                             <Link className={styles.whatsAppButton} href="https://wa.me/79539193800?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
                                 <ImgTag className={styles.noBorder} src={WhatsApp} />
                             </Link>
