@@ -50,6 +50,7 @@ export default function ContactsPage(): JSX.Element {
                                 <li>+7 (3822) 233-800</li>
                                 <li>expert233800@mail.ru</li>
                                 <li>Пн-пт: 10:00 - 19:00</li>
+                                <li>Cб-вс: по предв. записи</li>
                             </ul>
                         </Info>
                     </div>
