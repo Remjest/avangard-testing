@@ -16,6 +16,7 @@ export default function PopularService({ title, src, img, className, ...props} :
     return (
         <div className={classNames(styles.wrapper, className)}  {...props}>
             <div className={styles.title}>{title}</div>
+            <div/>
             <ServicePreview className={styles.image} src={src} title='Подробнее' img={img} />
         </div>
     );

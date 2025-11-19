@@ -10,7 +10,7 @@ export interface ImgTagProps {
     height?: number,
 }
 
-export default function ImgTag({src, alt = 'Error to load image', width=800, height=600, className, ...props} : ImgTagProps ) {
+export default function ImgTag({src, alt = 'Error to load image', width = 800, height = 600, className, ...props} : ImgTagProps ) {
 
     return (
         <Image className={classNames(styles.image, className)} src={src} alt={alt} {...props} width={width} height={height} />

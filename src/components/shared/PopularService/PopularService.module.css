@@ -1,12 +1,12 @@
 .wrapper {
 	display: grid;
-	grid-template-columns: 1fr auto;
+	grid-template-columns: auto 1fr minmax(500px, 1fr);
 
 	width: 100%;
 	padding: 20px 0 20px 0;
 
 	border-top: 1px solid var(--black);
-	gap: 30px;
+	gap: 15px;
 
 	background-color: var(--background);
 }
@@ -22,13 +22,19 @@
 }
 
 .image {
-	width: 100%;
-	max-width: 500px;
+	justify-self: right;
+
+	width: 100% !important;
+	max-width: 700px !important;
 }
 
 @media (max-width: 1050px) {
 	.wrapper {
 		grid-template-columns: 1fr;
+	}
+
+	.image {
+		max-width: none !important;
 	}
 }
 

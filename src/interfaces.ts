@@ -39,3 +39,36 @@ export interface Service {
     subText?:        string;
     videoLink?:      string;
 }
+
+export interface Main {
+    about:             About;
+    propertyValuation: PropertyValuation;
+    workPrinciples:    WorkPrinciple[];
+    advantages:        Advantage[];
+    metaTitle:         string;
+    metaDescription:   string;
+    metaKeywords:      string;
+}
+
+export interface About {
+    info:      string[];
+    important: string;
+    videoURL:  string;
+}
+
+export interface Advantage {
+    header:      string;
+    description: string;
+}
+
+export interface PropertyValuation {
+    info:     string;
+    imageURL: string;
+    price:    string;
+}
+
+export interface WorkPrinciple {
+    text:    string;
+    iconURL: string;
+}
+

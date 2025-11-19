@@ -20,9 +20,11 @@
 }
 
 .logo {
-	width: 150px;
+	width: 147.5px !important;
 	height: auto;
 	margin-bottom: 14px;
+
+	border-radius: 0 !important;
 }
 
 @media (max-width: 1200px) {

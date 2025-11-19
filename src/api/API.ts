@@ -22,6 +22,9 @@ const API = {
     },
     videos: {
         postVideo: process.env.NEXT_PUBLIC_DOMAIN + '/api/upload/video'
+    },
+    mainPage: {
+        getMainInfo: process.env.NEXT_PUBLIC_DOMAIN + '/api/main-page'
     }
 };
 

@@ -4,7 +4,6 @@ import { DetailedHTMLProps, HTMLAttributes, JSX, useContext, useEffect, useState
 import Home from './icons/home.svg';
 import Services from './icons/user.svg';
 import Expertise from './icons/doc.svg';
-import Roadacc from './icons/book.svg';
 import Contacts from './icons/phone.svg';
 import Payment from './icons/pay.svg';
 import styles from './Menu.module.css';
@@ -33,7 +32,6 @@ function FirstLevel( props: MenuProps) {
         { route: '', name: 'Главная', icon: <Home className={styles.nostroke}/>, id: 2, isNested: false },
         { route: 'services', name: 'Услуги оценки', icon: <Services className={styles.nofill}/>, id: 0, isNested: true},
         { route: 'expertise', name: 'Наши экспертизы', icon: <Expertise className={styles.nofill}/>, id: 1, isNested: true},
-        // { route: 'roadaccident', name: 'Юридическая помощь при дтп', icon: <Roadacc className={styles.nostroke}/>, id: 3 , isNested: false},
         { route: 'contacts', name: 'Контакты', icon: <Contacts className={styles.nostroke}/>, id: 3, isNested: false },
         { route: 'payment', name: 'Способы оплаты', icon: <Payment className={styles.nostroke} />, id: 4, isNested: false },
     ];

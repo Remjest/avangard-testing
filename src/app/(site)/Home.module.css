@@ -37,35 +37,6 @@
 	text-indent: 20px;
 }
 
-.list {
-	display: flex;
-	flex-direction: column;
-
-	margin-left: 20px;
-
-	list-style-type: none;
-	gap: 5px;
-}
-
-.list li {
-	position: relative;
-
-	padding-left: 10px;
-}
-
-.list li::before {
-	position: absolute;
-	top: calc(50% - 1px);
-	left: 0;
-
-	width: 2px;
-	height: 2px;
-
-	content: '';
-
-	background-color: var(--black);
-}
-
 .home {
 	display: flex;
 	flex-direction: column;

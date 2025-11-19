@@ -13,5 +13,5 @@ export default function HomePage(): JSX.Element {
                 <Button ><Link href={'/'}>Вернуться на главную</Link></Button>
             </div>
         </>
-    )
+    );
 }

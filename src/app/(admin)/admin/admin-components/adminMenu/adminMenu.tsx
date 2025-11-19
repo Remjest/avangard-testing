@@ -4,6 +4,7 @@ import { DetailedHTMLProps, HTMLAttributes, JSX, useContext, useEffect } from "r
 import Home from './icons/home.svg';
 import Services from './icons/user.svg';
 import Expertise from './icons/doc.svg';
+import Book from './icons/book.svg';
 import styles from './adminMenu.module.css';
 import MenuProvider, { AdminMenuContext, MenuContext } from "./adminMenu.context";
 import Link from "next/link";
@@ -24,7 +25,8 @@ export default function AdminMenu(): JSX.Element {
 
 function FirstLevel(props: AdminMenuProps) {
     const firstLevelMenu: FirstLevelMenuItem[] = [
-        { route: 'admin', name: 'Все услуги', icon: <Home className={styles.nostroke}/>, id: 2, isNested: false },
+        { route: 'admin', name: 'Все услуги', icon: <Home className={styles.nostroke} />, id: 2, isNested: false },
+        { route: 'admin/edit-main', name: 'Изменить главную', icon: <Book className={styles.nostroke}/>, id: 3, isNested: false },
         { route: 'admin/post-service', name: 'Добавить новую услугу', icon: <Services className={styles.nofill}/>, id: 0, isNested: false},
         { route: 'admin/post-subcategory', name: 'Добавить новую подкатегорию', icon: <Expertise className={styles.nofill}/>, id: 1, isNested: false},
     ];
