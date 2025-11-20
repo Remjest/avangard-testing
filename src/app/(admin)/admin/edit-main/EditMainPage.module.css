@@ -34,10 +34,6 @@
 }
 
 .bigText {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-
 	font-size: 16px;
 }
 
@@ -327,7 +323,6 @@
 
 	.bigText {
 		font-size: 13px;
-		gap: 10px;
 	}
 }
 

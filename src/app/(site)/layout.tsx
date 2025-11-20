@@ -29,7 +29,8 @@ export interface MainLayoutProps {
     children: ReactNode
 }
 
-export default function MainLayout({children} : MainLayoutProps) {
+export default function MainLayout({ children }: MainLayoutProps) {
+
     return (
         <html lang="ru">
             <body className={classNames(montserrat.variable, styles.layout)}>
@@ -41,9 +42,11 @@ export default function MainLayout({children} : MainLayoutProps) {
                         <div className={styles.contactsWrapper}>
                             <Link className={styles.whatsAppButton} href="https://t.me/avangard70ru?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
                                 <ImgTag className={styles.noBorder} src={Tg} />
+                                <div className={styles.buttonText}> Напишите нам в Телеграм! </div>
                             </Link>
                             <Link className={styles.whatsAppButton} href="https://wa.me/79539193800?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >
                                 <ImgTag className={styles.noBorder} src={WhatsApp} />
+                                <div className={styles.buttonText}> Напишите нам в WhatsApp! </div>
                             </Link>
                             <Link className={styles.phoneButton} href="tel:83822233800">
                                 <ImgTag className={styles.noBorder} src={Phone} />

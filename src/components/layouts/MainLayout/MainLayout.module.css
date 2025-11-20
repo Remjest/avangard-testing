@@ -5,7 +5,7 @@
 	grid-template-columns: 360px minmax(320px, auto);
 	grid-template-rows: 1fr auto;
 	grid-template-areas:
-		"sidebar main"
+		"main main"
 		"footer footer";
 
 	min-height: 100vh;
@@ -22,10 +22,12 @@
 
 	position: fixed;
 	top: 0;
-	left: 0;
+	left: -360px;
 
 	width: 360px;
 	height: 100%;
+
+	transition: all 0.2s ease-out;
 }
 
 .main {
@@ -35,7 +37,7 @@
 .footer {
 	grid-area: footer;
 
-	z-index: 3;
+	z-index: 1;
 }
 
 .stickyWrapper {
@@ -69,8 +71,20 @@
 	width: 45px;
 }
 
+.whatsAppButton > img {
+	animation: pulse 1.5s ease infinite;
+}
+
+.whatsAppButton > .buttonText {
+	display: none;
+}
+
 .phoneButton {
 	width: 45px;
+}
+
+.phoneButton > img {
+	animation: pulse 1.5s ease infinite;
 }
 
 .noBorder {
@@ -97,7 +111,34 @@
 	}
 
 	.whatsAppButton {
-		width: 75px;
+		position: relative;
+
+		width: 60px;
+	}
+
+	.whatsAppButton > .buttonText {
+		position: absolute;
+		z-index: -1;
+		right: 30px;
+		bottom: 1px;
+
+		display: block;
+		overflow: hidden;
+
+		max-width: 0;
+		padding: 5px 0;
+
+		transition: all 0.7s ease;
+		text-wrap: nowrap;
+
+		color: var(--white);
+		border-radius: 15px 0 0 15px;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+
+	.whatsAppButton:hover > .buttonText {
+		max-width: 306px;
+		padding: 5px 40px 5px 10px;
 	}
 
 	.phoneButton {
@@ -127,5 +168,19 @@
 		left: 0;
 
 		display: grid;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
 	}
 }
