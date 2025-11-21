@@ -16,7 +16,7 @@ import API from "@/src/api/API";
 import { getMainPage } from "@/src/api/mainPage";
 import { notFound } from "next/navigation";
 
-
+export const revalidate = 300;
 
 async function loadMain() {
 
@@ -99,11 +99,8 @@ export default async function HomePage(): Promise<JSX.Element>{
     const pageData = await loadMain();
 
     if (!pageData) notFound();
-    console.log(pageData);
 
     const popular = await loadPopular();
-
-    console.log(popular);
 
     return (
         <>
