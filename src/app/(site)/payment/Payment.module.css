@@ -58,9 +58,9 @@
 	margin-left: 40px;
 	padding-left: 20px;
 
-	font-size: 20px;
-	line-height: 22px;
-	gap: 20px;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 18px;
 }
 
 .withLine::before {
@@ -95,6 +95,8 @@
 	}
 
 	.withLine {
+		margin-left: 5px;
+
 		font-size: 16px;
 		line-height: 18px;
 	}

@@ -111,12 +111,18 @@ export default async function HomePage(): Promise<JSX.Element>{
                     <div className={styles.fourGrid}>
                         {pageData.about.info.map(point => <Info key={point}>{parseToHTML(point)}</Info>)}
                     </div>
+                    <Video videoUrl={`${process.env.NEXT_PUBLIC_DOMAIN}${pageData.about.videoURL}`} />
                     {pageData.about.important &&
                         <Important>
                             {parseToHTML(pageData.about.important)}
                         </Important>
                     }
-                    <Video videoUrl={`${process.env.NEXT_PUBLIC_DOMAIN}${pageData.about.videoURL}`}/>
+                </div>
+                <HTag tag="h2" direction="fromRight">ПРИНЦИПЫ РАБОТЫ НАШЕЙ КОМПАНИИ</HTag>
+                <div className={gStyles.sectionWrapper}>
+                    <div className={styles.fourGrid}>
+                        {pageData.workPrinciples.map((principle, i) => <Info key={i} image={`${process.env.NEXT_PUBLIC_DOMAIN}${principle.iconURL}`}>{principle.text}</Info>)}
+                    </div>
                 </div>
                 {popular && popular.length !== 0 && 
                     <>
@@ -138,7 +144,7 @@ export default async function HomePage(): Promise<JSX.Element>{
                         </div>
                     </>
                 }
-                <HTag tag="h2" direction="fromRight">ОЦЕНКА НЕДВИЖИМОСТИ</HTag>
+                {/* <HTag tag="h2" direction="fromRight">ОЦЕНКА НЕДВИЖИМОСТИ</HTag>
                 <div className={styles.textWrapper}>
                     <div className={styles.bigText}>
                         {parseToHTML(pageData.propertyValuation.info)}
@@ -147,13 +153,7 @@ export default async function HomePage(): Promise<JSX.Element>{
                         <ImgTag className={styles.homeImg} src={`${process.env.NEXT_PUBLIC_DOMAIN}${pageData.propertyValuation.imageURL}`} />
                         <Price price={pageData.propertyValuation.price} size="lower"/>
                     </div>
-                </div>
-                <HTag tag="h2" direction="fromRight">ПРИНЦИПЫ РАБОТЫ НАШЕЙ КОМПАНИИ</HTag>
-                <div className={gStyles.sectionWrapper}>
-                    <div className={styles.fourGrid}>
-                        {pageData.workPrinciples.map((principle, i) => <Info key={i} image={`${process.env.NEXT_PUBLIC_DOMAIN}${principle.iconURL}`}>{principle.text}</Info>)}
-                    </div>
-                </div>
+                </div> */}
                 <HTag tag="h2" direction="fromRight">ПРЕИМУЩЕСТВА СОТРУДНИЧЕСТВА С НАМИ</HTag>
                 <div className={gStyles.sectionWrapper}>
                     <div className={styles.fourGrid}>

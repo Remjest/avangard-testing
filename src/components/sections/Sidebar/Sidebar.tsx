@@ -11,7 +11,7 @@ import ImgTag from '../../shared/ImgTag/ImgTag';
 import Phone from './phone.png';
 import WhatsApp from './whatsapp.png';
 import Tg from './tg.png';
-import Open from './open.svg';
+import Open from './open.png';
 import Close from './close.png';
 
 
@@ -30,7 +30,9 @@ export default function Sidebar({ menu, className, ...props }: SidebarProps) {
                 className={classNames(styles.hovering, {
                 [styles.hoveringNone] : opened === false
             })}></div>
-            <Open className={styles.open} onClick={() => setOpened(true)} />
+            <div className={styles.open} onClick={() => setOpened(true)}>
+                <ImgTag src={Open} />
+            </div>
             <div className={classNames(styles.sidebar, className, {
                 [styles.sidebarOpened] : opened === true
             })} {...props}>
@@ -46,7 +48,7 @@ export default function Sidebar({ menu, className, ...props }: SidebarProps) {
                     {menu === 'client' && 
                         <>
                             <div className={styles.about}>
-                                <span className="bold">ООО «Авангард»</span> — наша профессиональная экспертно-оценочная компания, предлагающая вам широкий спектр услуг по проведению независимой оценки и экспертизы в Томске.
+                                <span className="bold">ООО «Авангард»</span> — профессиональная экспертно-оценочная компания, предлагающая вам широкий спектр услуг по проведению независимой оценки и экспертизы в Томске.
                             </div>
                             <div className={styles.contacts}>
                                 <Link className={styles.whatsAppButton} href="https://t.me/avangard70ru?text=Здравствуйте!" target="_blank" rel="noopener noreferrer" >

@@ -297,7 +297,7 @@ export default function EditServicePage() {
                 {errors.videoFile && <div className={styles.err}>{errors.videoFile.message}</div>}
 
 
-                <label className={styles.bigLabel}>РАЗДЕЛ: ОЦЕНКА НЕДВИЖИМОСТИ</label>
+                {/* <label className={styles.bigLabel}>РАЗДЕЛ: ОЦЕНКА НЕДВИЖИМОСТИ</label>
 
                 <label className={styles.label}>Введите информацию об услуге</label>
                 <label className={styles.tip}>
@@ -361,7 +361,7 @@ export default function EditServicePage() {
                     {preview ? "Изменить изображение" : "Загрузить изображение"}
                 </label>
                 <ImgTag className={classNames(styles.preview)} src={preview ? preview  : data?.propertyValuation.imageURL ? `${process.env.NEXT_PUBLIC_DOMAIN}${data.propertyValuation.imageURL}` : '/default.jpg'} alt="Здесь будет ваше превью" width={800} height={600} />
-                {errors.previewImage && <div className={styles.err}>{errors.previewImage.message}</div>}
+                {errors.previewImage && <div className={styles.err}>{errors.previewImage.message}</div>} */}
 
                 
                 <label className={styles.bigLabel}>РАЗДЕЛ: ПРИНЦИПЫ РАБОТЫ НАШЕЙ КОМПАНИИ</label>
@@ -478,13 +478,12 @@ export default function EditServicePage() {
                             <Info key={idx}>{parseToHTML(point)}</Info>
                         )}
                     </div>
+                    <Video videoUrl={video || `${process.env.NEXT_PUBLIC_DOMAIN}${data?.about.videoURL}`} />
                     <Important>
                         {parseToHTML(watchAll?.about?.important || "")}
                     </Important>
-
-                    <Video videoUrl={video || `${process.env.NEXT_PUBLIC_DOMAIN}${data?.about.videoURL}`} />
                 </div>
-                <HTag className={styles.h1} tag="h2" direction="fromRight">ОЦЕНКА НЕДВИЖИМОСТИ</HTag>
+                {/* <HTag className={styles.h1} tag="h2" direction="fromRight">ОЦЕНКА НЕДВИЖИМОСТИ</HTag>
                 <div className={styles.textWrapper}>
                     <div className={styles.bigText}>
                         {parseToHTML(watchAll?.propertyValuation?.info || "")}
@@ -503,7 +502,7 @@ export default function EditServicePage() {
 
                         <Price price={watchAll?.propertyValuation?.price || ""} size="lower"/>
                     </div>
-                </div>
+                </div> */}
                 <HTag className={styles.h1} tag="h2" direction="fromRight">ПРИНЦИПЫ РАБОТЫ НАШЕЙ КОМПАНИИ</HTag>
                 <div className={gStyles.sectionWrapper}>
                     <div className={styles.fourGrid}>
