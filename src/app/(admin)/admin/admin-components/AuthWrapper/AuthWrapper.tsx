@@ -2,6 +2,7 @@
 
 import { DetailedHTMLProps, HTMLAttributes, ReactNode, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Loading from "../../loading";
 
 export interface AuthWrapperProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
     children: ReactNode,
@@ -28,7 +29,7 @@ export default function AuthWrapper({ children }: AuthWrapperProps) {
         .catch(() => router.push("/admin-login"));
     }, [router]);
 
-    if (!authorized) return null;
+    if (!authorized) return <Loading />;
 
     return children;
 }

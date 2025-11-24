@@ -12,7 +12,7 @@ const staticPages = [
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-    const domain = process.env.MAIN_DOMAIN;
+    const domain = process.env.NEXT_PUBLIC_MAIN_DOMAIN;
 
     const servicesRes = await getServices('1');
     const services = servicesRes.success ? servicesRes.data : [];

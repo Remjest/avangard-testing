@@ -45,6 +45,7 @@ export default function ChangeButton({ action, targetId, newData, entityType, cl
             if (isConfirmed) {
                 const { success } = await editSubcategory(targetId, newData as Subcategory);
                 if (success) {
+                    window.alert("Изменения сохранены!");
                     router.push("/admin");
                 }
                 else window.alert("При попытке изменения произошла ошибка.");

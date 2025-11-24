@@ -128,6 +128,7 @@ export default function EditServicePage() {
 
         const { success } = await editMainPage(editData);
         if (success) {
+            window.alert("Изменения сохранены!");
             router.push("/admin");
         }
         else window.alert("При попытке изменения произошла ошибка.");

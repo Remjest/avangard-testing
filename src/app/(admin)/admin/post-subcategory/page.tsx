@@ -26,7 +26,10 @@ export default function PostSubcategoryPage() {
         const formattedName = data.name.trim();
         const res = await postSubcategory(formattedName, data.categoryId);
         if (!res.success) console.error(res.error);
-        else router.push("/admin");
+        else {
+            window.alert("Подкатегория добавлена!");
+            router.push("/admin");
+        }
     };
 
     return (

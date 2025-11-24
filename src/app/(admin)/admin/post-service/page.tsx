@@ -121,6 +121,7 @@ export default function EditServicePage() {
 
         const { success } = await postService(subcategoryId, editData);
         if (success) {
+            window.alert("Услуга добавлена!");
             router.push("/admin");
         }
         else { 

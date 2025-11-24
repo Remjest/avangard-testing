@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Независимая оценочная компания | ООО «АВАНГАРД»",
         description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества. Помогаем клиентам отстоять их интересы и получить достойную компенсацию в г. Томске и Области",
-        url: `${process.env.MAIN_DOMAIN}`,
+        url: `${process.env.NEXT_PUBLIC_MAIN_DOMAIN}`,
         images: [
             {
-                url: `${process.env.MAIN_DOMAIN}/videoPreview.jpg`,
+                url: `${process.env.NEXT_PUBLIC_MAIN_DOMAIN}/videoPreview.jpg`,
                 width: 1200,
                 height: 630,
             }
