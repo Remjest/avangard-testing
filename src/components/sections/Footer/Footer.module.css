@@ -82,7 +82,7 @@
 	}
 
 	.nav {
-		/* justify-items: center; */
+		justify-items: center;
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(4, auto);
 	}
@@ -90,7 +90,7 @@
 	.nav .point {
 		gap: 15px;
 
-		/* font-size: 13.5px; */
+		font-size: 13.5px;
 	}
 
 	.nav .phone {

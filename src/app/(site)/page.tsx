@@ -58,36 +58,9 @@ async function loadPopular () {
 
         const okResponses = results.filter((r): r is PromiseFulfilledResult<Response> =>
             r.status === 'fulfilled' && r.value !== null).map((r) => r.value);
-        const data = await Promise.all(okResponses.map(r => r.json()));
-        console.log(data);
+        const data: Service[] = await Promise.all(okResponses.map(r => r.json()));
 
-        const [cat1, cat2] = await Promise.all([
-            fetch(API.categories.byId + "1").then(r => r.json()),
-            fetch(API.categories.byId + "2").then(r => r.json()),
-        ]); // СКАЗАТЬ ДАМИРУ ИСПРАВИТЬ
-
-        const withCategory = data.map((service) => { // ЭТО ВСЕ НЕ НУЖНО ТОГДА
-            let categorySlug: "services" | "expertise" | null = null;
-
-            const inCat1 =
-                cat1?.subcategories && cat1.subcategories.some((subcategory: Subcategory) =>
-                    subcategory.services && subcategory.services.some((s: Service) => s.serviceId === service.serviceId
-                    )
-            );
-
-            const inCat2 =
-                cat2?.subcategories && cat2.subcategories.some((subcategory: Subcategory) =>
-                    subcategory.services && subcategory.services.some((s: Service) => s.serviceId === service.serviceId
-                    )
-                );
-
-            if (inCat1) categorySlug = "services";
-            else if (inCat2) categorySlug = "expertise";
-
-            return { service, category: categorySlug };
-        }); // ЭТО ВСЕ НЕ НУЖНО ТОГДА
-
-        return withCategory; // просто делаем ретурн сервисов + категорию подставим по айди
+        return data;
     } catch (err) {
         console.error("Failed to load popular services:", err);
     }
@@ -132,10 +105,11 @@ export default async function HomePage(): Promise<JSX.Element>{
                             if (serviceInfo) {
                                 return (
                                     <PopularService
-                                        title={serviceInfo.service.title}
-                                        key={serviceInfo.service.serviceId}
-                                        src={`${serviceInfo.category}/${serviceInfo.service.alias}`}
-                                        img={`${process.env.NEXT_PUBLIC_DOMAIN}${serviceInfo.service.picLinkPreview}`}
+                                        title={serviceInfo.title}
+                                        description={serviceInfo.mainText}
+                                        key={serviceInfo.serviceId}
+                                        src={`${serviceInfo.categoryId === 1 ? '/services' : '/expertise'}/${serviceInfo.alias}`}
+                                        img={`${process.env.NEXT_PUBLIC_DOMAIN}${serviceInfo.picLinkPreview}`}
                                     />
                                 );
                             }

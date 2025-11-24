@@ -26,7 +26,11 @@ export default function Hero({ className, ...props }: HeroProps) {
                 <div className={styles.slicer} />
                 <span>надежно</span>
             </div>
-            <Arrow className={styles.arrow}/>
+            <div className={styles.arrowContainer}>
+                <Arrow className={classNames(styles.arrow, styles.blinkingArrow)} />
+                <Arrow className={classNames(styles.arrow, styles.blinkingArrow)} />
+                <Arrow className={classNames(styles.arrow, styles.blinkingArrow)} />
+            </div>
         </div>
     );
 }

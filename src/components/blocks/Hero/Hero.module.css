@@ -72,6 +72,43 @@
 	line-height: 37px;
 }
 
+.arrowContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.arrow {
+    width: 90px;
+    height: auto;
+    transition: all 0.3s linear;
+}
+
+.blinkingArrow {
+  animation: blink 1.7s infinite;
+}
+
+.blinkingArrow:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.blinkingArrow:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
 .slicer {
 	width: 3px;
 	height: 100%;

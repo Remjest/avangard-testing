@@ -23,6 +23,7 @@ export interface Subcategory {
 }
 
 export interface Service {
+    categoryId:       number;
     serviceId:       number;
     title:           string;
     mainText:        string;

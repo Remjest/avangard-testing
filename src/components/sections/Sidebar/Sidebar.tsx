@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import styles from './Sidebar.module.css';
-import { DetailedHTMLProps, HTMLAttributes, useState } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from 'react';
 import Logo from './logo.png';
 import Menu from '../../blocks/Menu/Menu';
 import AdminMenu from '../../../app/(admin)/admin/admin-components/adminMenu/adminMenu';
@@ -13,6 +13,7 @@ import WhatsApp from './whatsapp.png';
 import Tg from './tg.png';
 import Open from './open.png';
 import Close from './close.png';
+import { usePathname } from 'next/navigation';
 
 
 export interface SidebarProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -23,6 +24,14 @@ export interface SidebarProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEl
 export default function Sidebar({ menu, className, ...props }: SidebarProps) {
 
     const [opened, setOpened] = useState<boolean>(false);
+
+    
+    const pathname = usePathname();
+
+    useEffect(() => {
+        const noClosePaths = [ '/services', '/expertise'];
+        if (!noClosePaths.includes(pathname)) setOpened(false);
+    }, [pathname]);
     
     return (
         <>

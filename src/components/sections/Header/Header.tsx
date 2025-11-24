@@ -24,7 +24,8 @@ export default function Header({ menu, className, ...props }: HeaderProps) {
     const pathname = usePathname();
 
     useEffect(() => {
-        setIsOpened(false);
+        const noClosePaths = [ '/services', '/expertise'];
+        if (!noClosePaths.includes(pathname)) setIsOpened(false);
     }, [pathname]);
 
     const variants = {
