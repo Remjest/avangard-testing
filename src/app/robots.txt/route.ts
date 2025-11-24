@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
+    const domain = process.env.NEXT_PUBLIC_MAIN_DOMAIN || 'https://remjest-avangard-testing-e1b1.twc1.net';
 
     const content = `User-agent: *
 Allow: /
@@ -11,7 +12,7 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /admin-login
 
-Sitemap: ${process.env.NEXT_PUBLIC_MAIN_DOMAIN}/sitemap.xml`;
+Sitemap: ${domain}/sitemap.xml`;
 
     return new NextResponse(content, {
         headers: {

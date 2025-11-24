@@ -21,7 +21,7 @@ const montserrat = Montserrat({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const domain = process.env.NEXT_PUBLIC_MAIN_DOMAIN;
+  const domain = process.env.NEXT_PUBLIC_MAIN_DOMAIN || 'https://remjest-avangard-testing-e1b1.twc1.net';
 
   return {
     title: "Независимая оценочная компания | ООО «АВАНГАРД»",
