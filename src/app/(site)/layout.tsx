@@ -20,23 +20,33 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-    icons: "/logo.png",
+export async function generateMetadata(): Promise<Metadata> {
+  const domain = process.env.NEXT_PUBLIC_MAIN_DOMAIN;
+
+  return {
     title: "Независимая оценочная компания | ООО «АВАНГАРД»",
     description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества. Помогаем клиентам отстоять их интересы и получить достойную компенсацию в г. Томске и Области",
+    icons: "/logo.png",
     openGraph: {
-        title: "Независимая оценочная компания | ООО «АВАНГАРД»",
-        description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества. Помогаем клиентам отстоять их интересы и получить достойную компенсацию в г. Томске и Области",
-        url: `${process.env.NEXT_PUBLIC_MAIN_DOMAIN}`,
-        images: [
-            {
-                url: `${process.env.NEXT_PUBLIC_MAIN_DOMAIN}/videoPreview.jpg`,
-                width: 1200,
-                height: 630,
-            }
-        ],
+      title: "Независимая оценочная компания | ООО «АВАНГАРД»",
+      description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества. Помогаем клиентам отстоять их интересы и получить достойную компенсацию в г. Томске и Области",
+      url: domain,
+      images: [
+        {
+          url: `${domain}/videoPreview.jpg`,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
-};
+    twitter: {
+      card: 'summary_large_image',
+      title: "Независимая оценочная компания | ООО «АВАНГАРД»",
+      description: "ООО «АВАНГАРД» - Мы проводим любой вид независимой оценки и экспертизы имущества.",
+      images: [`${domain}/videoPreview.jpg`],
+    },
+  };
+}
 
 export interface MainLayoutProps {
     children: ReactNode
