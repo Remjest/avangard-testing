@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         url: `${process.env.MAIN_DOMAIN}`,
         images: [
             {
-                url: "/videoPreview.jpg",
+                url: `${process.env.MAIN_DOMAIN}/videoPreview.jpg`,
                 width: 1200,
                 height: 630,
             }

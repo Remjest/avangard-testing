@@ -131,18 +131,7 @@
 	background-color: var(--white);
 }
 
-@media (max-width: 1200px) {
-	.hero {
-		width: 100%;
-		margin-left: 0;
-	}
-}
-
 @media (max-width: 768px) {
-	.hero {
-		width: 100%;
-		margin-left: 0;
-	}
 
 	.heroText {
 		align-items: center;

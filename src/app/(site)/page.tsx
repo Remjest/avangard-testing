@@ -7,27 +7,40 @@ import Info from "../../components/shared/Info/Info";
 import Video from "../../components/shared/Video/Video";
 
 import PopularService from "../../components/shared/PopularService/PopularService";
-import ImgTag from "../../components/shared/ImgTag/ImgTag";
-import Price from "../../components/shared/Price/Price";
 import { parseToHTML } from "../../helpers";
 import Important from "../../components/shared/Important/Important";
-import { Service, Subcategory } from "@/src/interfaces";
+import { Service } from "@/src/interfaces";
 import API from "@/src/api/API";
 import { getMainPage } from "@/src/api/mainPage";
 import { notFound } from "next/navigation";
 
 export const revalidate = 300;
 
+export async function generateMetadata() {
+    
+    const pageData = await loadMain();
+    
+    const metadata: {
+        title?: string;
+        description?: string;
+        keywords?: string;
+    } = {};
+
+    if (pageData?.metaTitle) metadata.title = pageData.metaTitle;
+    if (pageData?.metaDescription) metadata.description = pageData.metaDescription;
+    if (pageData?.metaKeywords) metadata.keywords = pageData.metaKeywords;
+
+    return metadata;
+}
+
 async function loadMain() {
 
     const res = await getMainPage();
-    if (!res.success) console.error('Failed to load page:', res.error);
-    const pageData = res.success ? res.data : null;
-
-    if (pageData) {
-        return pageData;
+    if (!res.success) {
+        console.error('Failed to load main page:', res.error);
+        return null;
     }
-    else return null;
+    return res.data;
 }
 
 
