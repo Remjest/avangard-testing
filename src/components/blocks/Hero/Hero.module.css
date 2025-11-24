@@ -8,10 +8,8 @@
 	flex-direction: column;
 	justify-content: center;
 
-	width: calc(100% + 50px);
-	height: 100vh;
-	max-height: 700px;
-	margin-left: -50px;
+	width: 100%;
+	height: 700px;
 
 	transition: all 0.1s linear;
 
@@ -72,42 +70,58 @@
 	line-height: 37px;
 }
 
-.arrowContainer{
-    display: flex;
-    flex-direction: column;
+.arrowContainer {
+	display: flex;
+	flex-direction: column;
 }
 
 .arrow {
-    width: 90px;
-    height: auto;
-    transition: all 0.3s linear;
+	position: relative;
+
+	width: 90px;
+	height: auto;
+
+	transition: all 0.3s linear;
 }
 
 .blinkingArrow {
-  animation: blink 1.7s infinite;
+	animation: blink 1.7s infinite;
 }
 
 .blinkingArrow:nth-child(2) {
-  animation-delay: 0.2s;
+	animation-delay: 0.1s;
 }
 
 .blinkingArrow:nth-child(3) {
-  animation-delay: 0.4s;
+	animation-delay: 0.2s;
 }
 
 @keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51% {
-    opacity: 0.4;
-  }
+	0%,
+	45% {
+		top: 0;
 
-  100% {
-    opacity: 1;
-  }
+		opacity: 1;
+	}
+
+	51% {
+		top: 5px;
+
+		opacity: 0.4;
+	}
+
+	80% {
+		top: 0;
+
+		opacity: 1;
+	}
+
+	100% {
+		top: 0;
+
+		opacity: 1;
+	}
 }
-
 
 .slicer {
 	width: 3px;
