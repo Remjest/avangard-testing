@@ -11,8 +11,7 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /admin-login
 
-Sitemap: ${process.env.NEXT_PUBLIC_MAIN_DOMAIN}/sitemap.xml
-`;
+Sitemap: ${process.env.NEXT_PUBLIC_MAIN_DOMAIN}/sitemap.xml`;
 
     return new NextResponse(content, {
         headers: {
