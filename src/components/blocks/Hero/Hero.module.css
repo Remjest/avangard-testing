@@ -76,8 +76,6 @@
 }
 
 .arrow {
-	position: relative;
-
 	width: 90px;
 	height: auto;
 
@@ -99,26 +97,18 @@
 @keyframes blink {
 	0%,
 	45% {
-		top: 0;
-
 		opacity: 1;
 	}
 
 	51% {
-		top: 5px;
-
 		opacity: 0.4;
 	}
 
 	80% {
-		top: 0;
-
 		opacity: 1;
 	}
 
 	100% {
-		top: 0;
-
 		opacity: 1;
 	}
 }
