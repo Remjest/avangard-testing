@@ -4,9 +4,7 @@
 
 	width: 100%;
 
-	/* height: auto; */
-
-	aspect-ratio: 5 / 3;
+	height: auto;
 
 	border-radius: 7px;
 	object-fit: cover;
