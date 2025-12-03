@@ -3,8 +3,12 @@
 	overflow: hidden;
 
 	width: 100%;
-	height: auto;
+
+	/* height: auto; */
+
+	aspect-ratio: 5 / 3;
 
 	border-radius: 7px;
 	object-fit: cover;
+	object-position: center;
 }

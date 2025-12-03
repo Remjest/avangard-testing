@@ -5,6 +5,7 @@ import styles from './PopularService.module.css';
 import classNames from "classnames";
 import ServicePreview from "../ServicePreview/ServicePreview";
 import { StaticImageData } from "next/image";
+import { parseToHTML } from "@/src/helpers";
 
 export interface PopularServiceProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
     title: string,
@@ -30,7 +31,7 @@ export default function PopularService({ title, description, src, img, className
         <div className={classNames(styles.wrapper, className)}  {...props}>
             <div className={styles.about}>
                 <div className={styles.title}>{title}</div>
-                <div className={styles.description}>{displayDescription}</div>
+                <div className={styles.description}>{parseToHTML(displayDescription)}</div>
             </div>
             <div/>
             <ServicePreview className={styles.image} src={src} title='Подробнее' img={img} />
