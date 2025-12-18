@@ -82,9 +82,9 @@ export const parseToHTML = (text: string | undefined): ReactNode => {
 
     flushText();
 
-    if (stack.length > 1) {
-        console.warn('Не все теги закрыты');
-    }
+    // if (stack.length > 1) {
+    //     console.warn('Не все теги закрыты');
+    // }
 
     const renderNode = (node: Node, key = 0): ReactNode => {
         switch (node.type) {

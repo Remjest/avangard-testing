@@ -83,6 +83,7 @@ function FirstLevel( props: MenuProps) {
                 setSubcategory(activeSubcat.subcategoryId);
             }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pagePath]);
     
     const variantsFirst = {
